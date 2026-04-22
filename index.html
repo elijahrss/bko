@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medicina Nuclear</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--red:#D41E2A;--red-dark:#a8161f;--black:#0d0d0d;--gray-900:#141414;--gray-800:#1c1c1c;--gray-700:#272727;--gray-600:#363636;--gray-500:#555;--gray-400:#7a7a7a;--gray-300:#aaa;--gray-200:#ccc;--gray-100:#e8e8e8;--white:#f8f8f8;--font:'Sora',sans-serif;--serif:'DM Serif Display',serif;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+::-webkit-scrollbar{width:5px;}::-webkit-scrollbar-track{background:var(--gray-900);}::-webkit-scrollbar-thumb{background:var(--red);border-radius:3px;}
+body{background:var(--black);color:var(--white);font-family:var(--font);overflow-x:hidden;}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(13,13,13,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(212,30,42,0.2);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:flex-start;gap:40px;height:60px;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-logo-icon{width:38px;height:38px;background:var(--red);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;color:#fff;}
+.nav-logo-text{font-weight:700;font-size:1rem;color:var(--white);display:flex;align-items:center;}
+.nav-logo-text span{color:var(--red);}
+.nav-links{display:flex;gap:12px;list-style:none;margin-left:auto;}
+.nav-links a{color:var(--gray-300);text-decoration:none;font-size:0.8rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;padding:8px 12px;border-radius:4px;transition:all 0.2s;white-space:nowrap;}
+.nav-links a:hover{color:var(--white);background:rgba(212,30,42,0.12);}
+.nav-badge{background:var(--red);color:#fff !important;border-radius:100px;padding:5px 12px !important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--white);border-radius:2px;}
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;}
+.hero-gradient{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(212,30,42,0.08) 0%,transparent 70%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.022) 1px,transparent 1px);background-size:50px 50px;}
+.atom-rings{position:absolute;top:50%;left:70%;transform:translate(-50%,-50%);pointer-events:none;}
+.ring{position:absolute;border:1px solid rgba(212,30,42,0.14);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);}
+.ring:nth-child(1){width:480px;height:480px;animation:spin 28s linear infinite;}
+.ring:nth-child(2){width:340px;height:340px;animation:spin 18s linear infinite reverse;}
+.ring:nth-child(3){width:200px;height:200px;animation:spin 12s linear infinite;}
+.ring-dot{position:absolute;width:8px;height:8px;background:var(--red);border-radius:50%;box-shadow:0 0 14px var(--red);top:-4px;left:50%;margin-left:-4px;}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg);}}
+.hero-content{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:120px 40px 80px;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(212,30,42,0.1);border:1px solid rgba(212,30,42,0.3);border-radius:100px;padding:6px 16px;font-size:0.67rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:28px;animation:fadeUp 0.8s ease both;}
+.hero-dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:blink 1.5s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.hero-title{font-size:clamp(3rem,8vw,7rem);font-weight:800;line-height:0.92;letter-spacing:-0.02em;animation:fadeUp 0.9s 0.15s ease both;}
+.hero-title .red{color:var(--red);}
+.hero-title .serif{font-family:var(--serif);font-weight:400;font-style:italic;}
+.hero-sub{font-size:clamp(0.95rem,2vw,1.2rem);color:var(--gray-300);margin-top:24px;max-width:540px;line-height:1.75;animation:fadeUp 0.9s 0.25s ease both;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px;animation:fadeUp 0.9s 0.35s ease both;}
+.btn-red{background:var(--red);color:#fff;padding:14px 28px;border-radius:6px;font-size:0.82rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.3s;border:none;cursor:pointer;}
+.btn-red:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,30,42,0.35);}
+.btn-ghost{background:transparent;color:var(--white);padding:14px 28px;border-radius:6px;font-size:0.82rem;font-weight:500;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.3s;border:1px solid rgba(255,255,255,0.15);}
+.btn-ghost:hover{border-color:var(--red);color:var(--red);}
+.hero-stats{display:flex;gap:48px;margin-top:60px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.06);animation:fadeUp 0.9s 0.45s ease both;flex-wrap:wrap;}
+.hero-stat-num{font-size:2.5rem;font-weight:800;}
+.hero-stat-num span{color:var(--red);}
+.hero-stat-label{font-size:0.72rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+/* TICKER */
+.ticker-wrap{background:var(--gray-900);border-top:1px solid rgba(212,30,42,0.2);border-bottom:1px solid rgba(212,30,42,0.2);padding:13px 0;overflow:hidden;}
+.ticker-track{display:flex;width:max-content;animation:ticker 38s linear infinite;}
+.ticker-item{display:flex;align-items:center;gap:10px;white-space:nowrap;padding:0 48px;font-size:0.7rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-400);}
+.ticker-item strong{color:var(--red);}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+/* SECTIONS */
+.section{padding:100px 40px;}
+.container{max-width:1280px;margin:0 auto;}
+.section-label{font-size:0.67rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.section-label::before{content:'';width:22px;height:1.5px;background:var(--red);}
+.section-title{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-0.02em;margin-bottom:20px;}
+.section-title .serif{font-family:var(--serif);font-weight:400;font-style:italic;}
+.section-desc{color:var(--gray-300);font-size:0.97rem;line-height:1.75;max-width:580px;}
+/* GRID HELPERS */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+/* CARDS */
+.card{background:var(--gray-800);border-radius:12px;padding:28px;border:1px solid rgba(255,255,255,0.05);transition:all 0.3s;}
+.card:hover{transform:translateY(-4px);background:var(--gray-700);border-color:rgba(212,30,42,0.2);}
+.card-icon{font-size:2rem;margin-bottom:14px;}
+.card-title{font-size:0.97rem;font-weight:700;margin-bottom:10px;}
+.card-desc{font-size:0.82rem;color:var(--gray-300);line-height:1.65;}
+.card-tag{display:inline-block;background:rgba(212,30,42,0.12);border:1px solid rgba(212,30,42,0.25);color:var(--red);font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 9px;border-radius:100px;margin-top:12px;}
+/* STEP CARDS */
+.step-card{background:var(--gray-800);border-radius:12px;padding:28px;border:1px solid rgba(255,255,255,0.05);transition:all 0.3s;}
+.step-card:hover{transform:translateY(-5px);background:var(--gray-700);border-color:var(--red);}
+.step-num{font-size:3rem;font-weight:800;color:rgba(212,30,42,0.12);line-height:1;margin-bottom:12px;}
+/* INTRO BOX */
+.intro-box{background:var(--gray-800);border-radius:16px;padding:44px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.05);}
+.intro-box-bar{position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);}
+.intro-bignum{font-size:7rem;font-weight:800;color:rgba(212,30,42,0.07);line-height:1;margin-bottom:-16px;}
+.chip-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;}
+.chip{background:var(--gray-700);border-radius:8px;padding:8px 14px;font-size:0.72rem;font-weight:500;color:var(--gray-200);display:flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,0.06);}
+.chip-dot{width:5px;height:5px;background:var(--red);border-radius:50%;}
+.highlight-box{background:var(--gray-900);border-left:3px solid var(--red);padding:18px 22px;border-radius:0 8px 8px 0;margin-top:24px;}
+.highlight-box p{color:var(--gray-200);font-size:0.88rem;line-height:1.7;margin:0;}
+/* EXAM TABS */
+.tabs{display:flex;gap:8px;margin-bottom:44px;flex-wrap:wrap;}
+.tab{background:var(--gray-800);color:var(--gray-300);border:1px solid rgba(255,255,255,0.06);padding:9px 20px;border-radius:100px;font-family:var(--font);font-size:0.78rem;font-weight:500;cursor:pointer;transition:all 0.2s;}
+.tab.active,.tab:hover{background:var(--red);color:#fff;border-color:var(--red);}
+.tab-panel{display:none;}
+.tab-panel.active{display:block;}
+/* EXAM CARD */
+.exam-card{background:var(--gray-900);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.06);}
+.exam-head{background:linear-gradient(135deg,var(--gray-800),var(--gray-700));padding:44px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.exam-title{font-size:1.9rem;font-weight:800;margin-bottom:10px;}
+.exam-sub{font-size:0.95rem;color:var(--gray-300);line-height:1.7;max-width:480px;}
+.exam-badge{display:inline-block;background:var(--red);color:#fff;padding:7px 18px;border-radius:100px;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:16px;}
+.exam-body{padding:44px;}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:28px;}
+.stat-box{background:var(--gray-800);border-radius:10px;padding:20px;text-align:center;}
+.stat-num{font-size:1.8rem;font-weight:800;color:var(--red);}
+.stat-label{font-size:0.75rem;color:var(--gray-400);margin-top:3px;}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.info-block{background:var(--gray-800);border-radius:10px;padding:22px;}
+.info-block h4{font-size:0.88rem;font-weight:700;margin-bottom:12px;}
+.info-block ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.info-block li{font-size:0.8rem;color:var(--gray-300);display:flex;gap:8px;line-height:1.5;}
+.info-block li::before{content:'';width:4px;height:4px;background:var(--red);border-radius:50%;margin-top:7px;flex-shrink:0;}
+/* RADIO TABLE */
+.radio-wrap{background:var(--gray-900);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.05);}
+.radio-head{background:var(--red);padding:18px 26px;}
+.radio-head h3{font-size:0.95rem;font-weight:700;color:#fff;}
+.radio-row{display:grid;grid-template-columns:1.2fr 0.8fr 1.5fr;padding:14px 26px;border-bottom:1px solid rgba(255,255,255,0.04);gap:14px;align-items:center;}
+.radio-row.header{background:rgba(255,255,255,0.04);}
+.radio-row:last-child{border:none;}
+.radio-row:hover:not(.header){background:rgba(255,255,255,0.02);}
+.r-cell{font-size:0.8rem;color:var(--gray-300);}
+.r-cell.strong{font-weight:700;color:var(--white);font-size:0.83rem;}
+.r-cell.red{color:var(--red);font-weight:600;}
+/* COMPARE TABLE */
+.compare-wrap{background:var(--gray-800);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.05);margin-top:44px;}
+.compare-head{background:rgba(212,30,42,0.12);padding:18px 26px;border-bottom:1px solid rgba(255,255,255,0.05);}
+.compare-row{display:grid;grid-template-columns:2fr 1fr 1fr;padding:14px 26px;border-bottom:1px solid rgba(255,255,255,0.04);align-items:center;}
+.compare-row.header{background:rgba(255,255,255,0.03);font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gray-400);}
+.c-cell{font-size:0.8rem;color:var(--gray-300);}
+.bar-wrap{background:var(--gray-700);border-radius:4px;height:7px;overflow:hidden;}
+.bar{height:100%;background:var(--red);border-radius:4px;}
+/* DO/DONT */
+.dodont{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:44px;}
+.do-col{background:var(--gray-800);border-radius:12px;padding:28px;border-top:3px solid #22c55e;}
+.dont-col{background:var(--gray-800);border-radius:12px;padding:28px;border-top:3px solid var(--red);}
+.do-col h3{color:#22c55e;font-size:0.92rem;font-weight:700;margin-bottom:16px;}
+.dont-col h3{color:var(--red);font-size:0.92rem;font-weight:700;margin-bottom:16px;}
+.do-col ul,.dont-col ul{list-style:none;display:flex;flex-direction:column;}
+.do-col li,.dont-col li{font-size:0.8rem;color:var(--gray-300);padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);display:flex;gap:8px;line-height:1.5;}
+.do-col li:last-child,.dont-col li:last-child{border:none;}
+.do-col li::before{content:'✓';color:#22c55e;font-weight:700;}
+.dont-col li::before{content:'✗';color:var(--red);font-weight:700;}
+/* GLOSSARY */
+.glossary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:44px;}
+.glossary-item{background:var(--gray-800);border-radius:10px;padding:18px 22px;border:1px solid rgba(255,255,255,0.05);display:flex;gap:14px;}
+.g-term{font-weight:800;color:var(--red);font-size:0.9rem;min-width:100px;flex-shrink:0;}
+.g-def{font-size:0.8rem;color:var(--gray-300);line-height:1.65;}
+/* ACCORDION */
+.accordion{display:flex;flex-direction:column;gap:8px;margin-top:44px;}
+.acc-item{background:var(--gray-800);border-radius:10px;border:1px solid rgba(255,255,255,0.05);overflow:hidden;}
+.acc-trigger{width:100%;background:none;border:none;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:var(--font);font-size:0.88rem;font-weight:700;color:var(--white);text-align:left;transition:background 0.2s;}
+.acc-trigger:hover{background:rgba(255,255,255,0.03);}
+.acc-trigger.open{color:var(--red);}
+.acc-arrow{font-size:1.1rem;color:var(--red);transition:transform 0.3s;}
+.acc-trigger.open .acc-arrow{transform:rotate(180deg);}
+.acc-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+.acc-body.open{max-height:600px;}
+.acc-content{padding:0 22px 22px;font-size:0.83rem;color:var(--gray-300);line-height:1.75;}
+/* QUIZ */
+.quiz-box{max-width:680px;margin:0 auto;}
+.quiz-question{background:var(--gray-900);border-radius:12px;padding:28px;margin-bottom:20px;border:1px solid rgba(255,255,255,0.06);}
+.quiz-q{font-size:0.97rem;font-weight:700;margin-bottom:18px;}
+.quiz-opts{display:flex;flex-direction:column;gap:9px;}
+.quiz-opt{background:var(--gray-800);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:12px 16px;cursor:pointer;font-family:var(--font);font-size:0.83rem;color:var(--gray-200);transition:all 0.2s;text-align:left;width:100%;}
+.quiz-opt:hover{background:var(--gray-700);border-color:rgba(212,30,42,0.3);}
+.quiz-opt.correct{background:rgba(34,197,94,0.1);border-color:#22c55e;color:#22c55e;}
+.quiz-opt.wrong{background:rgba(212,30,42,0.1);border-color:var(--red);color:var(--red);}
+.quiz-fb{padding:11px 14px;border-radius:8px;font-size:0.82rem;margin-top:10px;display:none;}
+.quiz-fb.show{display:block;}
+.quiz-fb.correct{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);color:#22c55e;}
+.quiz-fb.wrong{background:rgba(212,30,42,0.1);border:1px solid rgba(212,30,42,0.3);color:var(--red);}
+.quiz-score{text-align:center;padding:32px;background:var(--gray-900);border-radius:12px;border:1px solid rgba(255,255,255,0.06);display:none;}
+.score-big{font-size:4rem;font-weight:800;color:var(--red);line-height:1;}
+/* ALERT */
+.alert{background:rgba(212,30,42,0.08);border:1px solid rgba(212,30,42,0.3);border-radius:12px;padding:22px 26px;margin-top:22px;}
+.alert h4{color:var(--red);font-weight:700;margin-bottom:8px;}
+.alert p{font-size:0.83rem;color:var(--gray-300);line-height:1.65;}
+/* HUMAN */
+.human-step{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px;}
+.human-step-num{width:34px;height:34px;background:var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#fff;flex-shrink:0;}
+.human-step-text h4{font-size:0.88rem;font-weight:700;margin-bottom:3px;}
+.human-step-text p{font-size:0.78rem;color:var(--gray-400);line-height:1.6;}
+/* PILLAR */
+.pillar{background:var(--gray-900);border-radius:10px;padding:18px;border:1px solid rgba(255,255,255,0.05);transition:all 0.3s;}
+.pillar:hover{background:var(--gray-800);}
+.pillar-icon{font-size:1.7rem;margin-bottom:9px;}
+.pillar-name{font-size:0.85rem;font-weight:700;margin-bottom:5px;}
+.pillar-desc{font-size:0.76rem;color:var(--gray-400);line-height:1.6;}
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(36px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.d1{transition-delay:0.1s;}.d2{transition-delay:0.2s;}.d3{transition-delay:0.3s;}.d4{transition-delay:0.4s;}
+/* PROGRESS */
+.prog-bar{position:fixed;top:0;left:0;height:3px;background:var(--red);z-index:9999;transition:width 0.1s;}
+/* BACK TOP */
+.back-top{position:fixed;bottom:28px;right:28px;width:42px;height:42px;background:var(--red);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;opacity:0;transform:translateY(8px);transition:all 0.3s;z-index:100;}
+.back-top.show{opacity:1;transform:translateY(0);}
+.back-top:hover{background:var(--red-dark);transform:translateY(-2px)!important;}
+/* MOBILE */
+.mob-menu{display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(13,13,13,0.98);backdrop-filter:blur(20px);z-index:999;padding:28px 36px;overflow-y:auto;flex-direction:column;gap:5px;}
+.mob-menu.open{display:flex;}
+.mob-menu a{color:var(--gray-200);text-decoration:none;font-size:0.97rem;font-weight:600;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.06);display:block;}
+.mob-menu a:hover{color:var(--red);}
+/* FOOTER */
+footer{background:var(--gray-900);border-top:1px solid rgba(255,255,255,0.06);padding:56px 40px 36px;}
+.footer-inner{max-width:1280px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px;}
+.footer-brand h3{font-size:1.1rem;font-weight:800;margin-bottom:10px;}
+.footer-brand h3 span{color:var(--red);}
+.footer-brand p{font-size:0.8rem;color:var(--gray-400);line-height:1.7;max-width:270px;}
+.footer-col h4{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-400);margin-bottom:14px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.footer-col a{font-size:0.8rem;color:var(--gray-400);text-decoration:none;transition:color 0.2s;}
+.footer-col a:hover{color:var(--red);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-copy{font-size:0.75rem;color:var(--gray-500);}
+@media(max-width:1024px){
+  .nav-links{display:none;}.hamburger{display:flex;}
+  .grid-2,.dodont{grid-template-columns:1fr;}
+  .grid-3,.grid-4{grid-template-columns:repeat(2,1fr);}
+  .info-grid,.stat-row{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .atom-rings{opacity:0.25;}
+}
+@media(max-width:640px){
+  .section{padding:60px 22px;}
+  .hero-content{padding:100px 22px 60px;}
+  .grid-3,.grid-4,.info-grid,.stat-row,.glossary-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .nav-inner{padding:0 22px;}
+  .hero-stats{gap:24px;}
+  .radio-row{grid-template-columns:1fr;gap:4px;}
+  .compare-row{grid-template-columns:1fr;gap:4px;}
+}
+</style>
+</head>
+<body>
+<div class="prog-bar" id="progBar"></div>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-icon">☢</div>
+      <span class="nav-logo-text">Medicina<span>Nuclear</span></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#o-que-e">O Que É</a></li>
+      <li><a href="#como-funciona">Como Funciona</a></li>
+      <li><a href="#exames">Exames</a></li>
+      <li><a href="#tipos">Cintilografia</a></li>
+      <li><a href="#radiofarmacos">Radiofarmacos</a></li>
+      <li><a href="#doencas">Doenças</a></li>
+      <li><a href="#preparo">Preparo</a></li>
+      <li><a href="#humanizacao">Humanização</a></li>
+      <li><a href="#bko">BKO</a></li>
+      <li><a href="#dasa">DASA</a></li>
+      <li><a href="#quiz" class="nav-badge">Quiz ✦</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#o-que-e" onclick="toggleMenu()">O Que É Medicina Nuclear</a>
+  <a href="#como-funciona" onclick="toggleMenu()">Como Funciona</a>
+  <a href="#exames" onclick="toggleMenu()">Exames (PET/CT, Cintilografia, SPECT)</a>
+  <a href="#tipos" onclick="toggleMenu()">Tipos de Cintilografia</a>
+  <a href="#radiofarmacos" onclick="toggleMenu()">Radiofarmacos</a>
+  <a href="#doencas" onclick="toggleMenu()">Doenças Diagnosticadas</a>
+  <a href="#preparo" onclick="toggleMenu()">Preparo dos Exames</a>
+  <a href="#seguranca" onclick="toggleMenu()">Segurança e Radiação</a>
+  <a href="#humanizacao" onclick="toggleMenu()">Humanização e Empatia</a>
+  <a href="#bko" onclick="toggleMenu()">Papel do BKO</a>
+  <a href="#teranostica" onclick="toggleMenu()">Teranóstica</a>
+  <a href="#dasa" onclick="toggleMenu()">Sobre a DASA</a>
+  <a href="#glossario" onclick="toggleMenu()">Glossário Técnico</a>
+  <a href="#quiz" onclick="toggleMenu()">Quiz ✦</a>
+</div>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-gradient"></div>
+    <div class="hero-grid"></div>
+    <div class="atom-rings">
+      <div class="ring"><div class="ring-dot"></div></div>
+      <div class="ring"><div class="ring-dot"></div></div>
+      <div class="ring"><div class="ring-dot"></div></div>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow"><span class="hero-dot"></span>DASA - Guia semi-completo.</div>
+    <h1 class="hero-title">
+      Medicina<br>
+      <span class="red">Nuclear</span><br>
+      <span class="serif">do zero</span>
+    </h1>
+    <p class="hero-sub">Tudo que você precisa saber sobre a especialidade médica mais "avançada e sensível", exames, radiofarmacos, doenças, humanização e o papel do BKO na DASA.</p>
+    <div class="hero-actions">
+      <a href="#o-que-e" class="btn-red">☢ Começar</a>
+      <a href="#quiz" class="btn-ghost">▶ Fazer o Quiz</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hero-stat-num">90<span>%</span></div><div class="hero-stat-label">PET/CT em oncologia</div></div>
+      <div><div class="hero-stat-num">6<span>h</span></div><div class="hero-stat-label">Meia-vida Tc-99m</div></div>
+      <div><div class="hero-stat-num">+20</div><div class="hero-stat-label">Tipos de cintilografia</div></div>
+      <div><div class="hero-stat-num">0<span>%</span></div><div class="hero-stat-label">Dor nos exames</div></div>
+    </div>
+  </div>
+</section>
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <div class="ticker-item"><strong>PET/CT</strong> Tomografia por Emissão de Pósitrons •</div>
+    <div class="ticker-item"><strong>Tc-99m</strong> Isótopo mais versátil - 6h meia-vida •</div>
+    <div class="ticker-item"><strong>Cintilografia</strong> Avaliação funcional dos órgãos •</div>
+    <div class="ticker-item"><strong>Radiofármaco</strong> Diagnóstico e terapia •</div>
+    <div class="ticker-item"><strong>SPECT</strong> Single Photon Emission CT •</div>
+    <div class="ticker-item"><strong>Humanização</strong> Essencial no atendimento •</div>
+    <div class="ticker-item"><strong>BKO DASA</strong> Primeiro ponto de contato •</div>
+    <div class="ticker-item"><strong>Teranóstica</strong> Diagnóstico + Terapia •</div>
+    <div class="ticker-item"><strong>ALARA</strong> Mínima dose necessária •</div>
+    <div class="ticker-item"><strong>FDG F-18</strong> Principal radiofármaco PET •</div>
+    <div class="ticker-item"><strong>PET/CT</strong> Tomografia por Emissão de Pósitrons •</div>
+    <div class="ticker-item"><strong>Tc-99m</strong> Isótopo mais versátil - 6h meia-vida •</div>
+    <div class="ticker-item"><strong>Cintilografia</strong> Avaliação funcional dos órgãos •</div>
+    <div class="ticker-item"><strong>Radiofármaco</strong> Diagnóstico e terapia •</div>
+    <div class="ticker-item"><strong>SPECT</strong> Single Photon Emission CT •</div>
+    <div class="ticker-item"><strong>Humanização</strong> Essencial no atendimento •</div>
+    <div class="ticker-item"><strong>BKO DASA</strong> Primeiro ponto de contato •</div>
+    <div class="ticker-item"><strong>Teranóstica</strong> Diagnóstico + Terapia •</div>
+    <div class="ticker-item"><strong>ALARA</strong> Mínima dose necessária •</div>
+    <div class="ticker-item"><strong>FDG F-18</strong> Principal radiofármaco PET •</div>
+  </div>
+</div>
+<!-- O QUE É -->
+<section class="section" id="o-que-e" style="background:var(--black);">
+  <div class="container">
+    <div class="grid-2">
+      <div class="reveal">
+        <div class="intro-box">
+          <div class="intro-box-bar"></div>
+          <div class="intro-bignum">MN</div>
+          <div class="section-label" style="margin-bottom:10px;">Definição</div>
+          <h2 style="font-size:1.75rem;font-weight:800;margin-bottom:14px;line-height:1.15;">O que é Medicina Nuclear?</h2>
+          <p style="font-size:0.87rem;color:var(--gray-300);line-height:1.8;margin-bottom:12px;">É a especialidade médica que utiliza <strong style="color:var(--white);">radiofarmacos</strong> - substâncias radioativas - para realizar exames diagnósticos por imagem e tratamentos terapêuticos. Ela avalia a <strong style="color:var(--red);">fisiologia</strong> (funcionamento) dos órgãos, não apenas sua estrutura.</p>
+          <p style="font-size:0.87rem;color:var(--gray-300);line-height:1.8;margin-bottom:20px;">Divide-se em duas grandes vertentes: <strong style="color:var(--white);">Diagnóstico</strong> (cintilografia, PET/CT, SPECT) e <strong style="color:var(--white);">Terapia</strong> (radioiodo, Lu-177-PSMA, Ra-223).</p>
+          <div class="chip-row">
+            <div class="chip"><span class="chip-dot"></span>Diagnóstico</div>
+            <div class="chip"><span class="chip-dot"></span>Terapia</div>
+            <div class="chip"><span class="chip-dot"></span>Imagem funcional</div>
+            <div class="chip"><span class="chip-dot"></span>Pouco invasivo</div>
+            <div class="chip"><span class="chip-dot"></span>Alta precisão</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <div class="section-label">Por que é tão especial?</div>
+        <h2 class="section-title">A especialidade mais <span class="serif">sensível</span> da medicina</h2>
+        <p style="color:var(--gray-300);line-height:1.8;font-size:0.95rem;margin-bottom:14px;">A Medicina Nuclear é considerada a especialidade mais cara e "sensível" porque envolve materiais radioativos, equipamentos de altíssima tecnologia (um PET/CT pode custar milhões), equipes especializadas e protocolos rigorosos de radioproteção regulamentados pela CNEN.</p>
+        <p style="color:var(--gray-300);line-height:1.8;font-size:0.95rem;margin-bottom:14px;">Diferente da radiologia convencional (que capta imagens <em>anatômicas</em> - como algo parece), a medicina nuclear avalia a <strong style="color:var(--white);">atividade metabólica</strong> - como algo funciona. Isso permite detectar doenças antes de qualquer alteração visível nos tecidos.</p>
+        <p style="color:var(--gray-300);line-height:1.8;font-size:0.95rem;margin-bottom:14px;">Um exemplo prático: um tumor pode ser metabolicamente ativo (visível no PET/CT) sem causar ainda alteração estrutural visível na tomografia convencional.</p>
+        <div class="highlight-box">
+          <p>⚡ <strong>Diferencial-chave:</strong> A medicina nuclear fornece informações <em>funcionais em tempo real</em>. Uma câmara do coração com paredes normais pode ter fluxo sanguíneo comprometido - só detectável pela cintilografia miocárdica. Isso muda completamente a conduta terapêutica.</p>
+        </div>
+        <div style="margin-top:24px;display:flex;gap:16px;flex-wrap:wrap;">
+          <div style="background:var(--gray-900);border-radius:8px;padding:16px 20px;flex:1;min-width:140px;">
+            <div style="font-size:0.7rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Fundada como especialidade</div>
+            <div style="font-size:1.4rem;font-weight:800;color:var(--red);">1950s</div>
+          </div>
+          <div style="background:var(--gray-900);border-radius:8px;padding:16px 20px;flex:1;min-width:140px;">
+            <div style="font-size:0.7rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Dose Tc-99m</div>
+            <div style="font-size:1.4rem;font-weight:800;color:var(--red);">~4 mSv</div>
+          </div>
+          <div style="background:var(--gray-900);border-radius:8px;padding:16px 20px;flex:1;min-width:140px;">
+            <div style="font-size:0.7rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;">Exames disponíveis</div>
+            <div style="font-size:1.4rem;font-weight:800;color:var(--red);">+20</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- COMO FUNCIONA -->
+<section class="section" id="como-funciona" style="background:var(--gray-900);">
+  <div class="container">
+    <div class="section-label reveal">O Processo</div>
+    <h2 class="section-title reveal">Como funciona <span class="serif">passo a passo</span></h2>
+    <p class="section-desc reveal">Do agendamento ao laudo - o caminho completo num serviço de medicina nuclear.</p>
+    <div class="grid-4" style="margin-top:52px;">
+      <div class="step-card reveal d1">
+        <div class="step-num">01</div>
+        <div class="card-icon">📋</div>
+        <div class="card-title">Pedido Médico</div>
+        <div class="card-desc">O médico assistente solicita o exame com a indicação clínica. O tipo de pedido define qual radiofármaco e protocolo será usado.</div>
+        <div class="card-tag">BKO recebe</div>
+      </div>
+      <div class="step-card reveal d2">
+        <div class="step-num">02</div>
+        <div class="card-icon">📅</div>
+        <div class="card-title">Agendamento</div>
+        <div class="card-desc">BKO agenda, orienta sobre preparo (jejum, medicamentos, chegada antecipada) e confirma a unidade com o equipamento necessário.</div>
+        <div class="card-tag">Crucial - BKO</div>
+      </div>
+      <div class="step-card reveal d3">
+        <div class="step-num">03</div>
+        <div class="card-icon">💉</div>
+        <div class="card-title">Administração do Radiofármaco</div>
+        <div class="card-desc">O radiofármaco é administrado por via intravenosa (maioria), inalatória (pulmão) ou oral (tireoide). Indolor - como um exame de sangue.</div>
+        <div class="card-tag">Ação técnica</div>
+      </div>
+      <div class="step-card reveal d4">
+        <div class="step-num">04</div>
+        <div class="card-icon">⏳</div>
+        <div class="card-title">Período de Distribuição</div>
+        <div class="card-desc">Paciente aguarda a substância se distribuir e concentrar no órgão-alvo. Tempo varia de 15 min (PET) a 3h (cintilografia óssea).</div>
+        <div class="card-tag">Tempo variável</div>
+      </div>
+      <div class="step-card reveal d1">
+        <div class="step-num">05</div>
+        <div class="card-icon">🖥️</div>
+        <div class="card-title">Aquisição das Imagens</div>
+        <div class="card-desc">Gama-câmara ou PET/CT captam a radiação emitida pelo radiofármaco acumulado. Geram imagens estáticas, dinâmicas ou tomográficas (SPECT/CT).</div>
+        <div class="card-tag">15–60 min</div>
+      </div>
+      <div class="step-card reveal d2">
+        <div class="step-num">06</div>
+        <div class="card-icon">🔬</div>
+        <div class="card-title">Laudo Médico Nuclear</div>
+        <div class="card-desc">O médico nuclear interpreta as imagens, correlaciona com dados clínicos e elabora o laudo - disponível no portal ou fisicamente na unidade.</div>
+        <div class="card-tag">24–48h prazo</div>
+      </div>
+      <div class="step-card reveal d3">
+        <div class="step-num">07</div>
+        <div class="card-icon">💧</div>
+        <div class="card-title">Eliminação</div>
+        <div class="card-desc">O corpo elimina o radiofármaco principalmente pela urina. Hidratação abundante acelera o processo. Meia-vida curta garante eliminação segura.</div>
+        <div class="card-tag">Natural e seguro</div>
+      </div>
+      <div class="step-card reveal d4">
+        <div class="step-num">08</div>
+        <div class="card-icon">📞</div>
+        <div class="card-title">Pós-atendimento BKO</div>
+        <div class="card-desc">BKO pode ser acionado para dúvidas sobre resultado, prazo de laudo, retirada de exame, NF e suporte geral. Follow-up humanizado é fundamental.</div>
+        <div class="card-tag">BKO novamente</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- EXAMES -->
+<section class="section" id="exames" style="background:var(--black);">
+  <div class="container">
+    <div class="section-label reveal">Modalidades</div>
+    <h2 class="section-title reveal">Principais <span class="serif">exames</span></h2>
+    <p class="section-desc reveal">Conheça os três pilares da medicina nuclear diagnóstica.</p>
+    <div class="tabs reveal">
+      <button class="tab active" onclick="showTab('exam','cintilo',this)">Cintilografia</button>
+      <button class="tab" onclick="showTab('exam','petct',this)">PET/CT</button>
+      <button class="tab" onclick="showTab('exam','spect',this)">SPECT / SPECT-CT</button>
+    </div>
+    <div class="tab-panel active" id="exam-cintilo">
+      <div class="exam-card reveal">
+        <div class="exam-head">
+          <div class="exam-title">Cintilografia</div>
+          <div class="exam-sub">Avaliação funcional por imagens 2D e 3D geradas pela captação de radiofarmacos em órgãos específicos. O exame mais versátil da medicina nuclear - mais de 20 tipos diferentes.</div>
+          <div class="exam-badge">Gama-câmara</div>
+        </div>
+        <div class="exam-body">
+          <div class="stat-row">
+            <div class="stat-box"><div class="stat-num">6h</div><div class="stat-label">Meia-vida Tc-99m</div></div>
+            <div class="stat-box"><div class="stat-num">20+</div><div class="stat-label">Tipos de cintilografia</div></div>
+            <div class="stat-box"><div class="stat-num">2–4h</div><div class="stat-label">Duração total média</div></div>
+          </div>
+          <div class="info-grid">
+            <div class="info-block"><h4>✅ Vantagens</h4><ul><li>Avalia funcionamento, não apenas estrutura anatômica</li><li>Detecta alterações funcionais precoces</li><li>Pouco invasivo e indolor</li><li>Sem reações alérgicas relevantes</li><li>Sem sedação - paciente acordado</li><li>Equipamento silencioso, sem efeito tubo/claustrofobia</li><li>Permite mapeamento do corpo inteiro</li></ul></div>
+            <div class="info-block"><h4>⚠️ Contraindicações</h4><ul><li>Gestantes (relação risco/benefício avaliada pelo médico)</li><li>Nutrizes: possível suspensão temporária da amamentação</li><li>Alergia ao radiofármaco (extremamente raro)</li><li>Função renal comprometida em alguns protocolos</li></ul></div>
+            <div class="info-block"><h4>📋 Preparo geral</h4><ul><li>Jejum variável (2–6h conforme protocolo)</li><li>Suspensão de medicamentos específicos</li><li>Informar alergias, gravidez e amamentação</li><li>Chegar 30–60 min antes</li><li>Hidratação abundante pós-exame</li></ul></div>
+            <div class="info-block"><h4>🏥 Equipamento: Gama-câmara</h4><ul><li>Detecta radiação gama emitida pelo Tc-99m</li><li>Gera imagens planares 2D ou tomográficas SPECT</li><li>Silenciosa e aberta - sem claustrofobia</li><li>Controle de qualidade diário obrigatório (CNEN)</li><li>Discovery NM 630: nova geração disponível na DASA</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" id="exam-petct">
+      <div class="exam-card reveal">
+        <div class="exam-head">
+          <div class="exam-title">PET/CT</div>
+          <div class="exam-sub">Tomografia por Emissão de Pósitrons + Tomografia Computadorizada. O exame mais avançado da medicina nuclear - fusão de informação metabólica e anatômica de alta resolução.</div>
+          <div class="exam-badge">Alta Complexidade</div>
+        </div>
+        <div class="exam-body">
+          <div class="stat-row">
+            <div class="stat-box"><div class="stat-num">90%</div><div class="stat-label">Uso oncológico</div></div>
+            <div class="stat-box"><div class="stat-num">~3h</div><div class="stat-label">Duração total</div></div>
+            <div class="stat-box"><div class="stat-num">FDG</div><div class="stat-label">Principal radiofármaco</div></div>
+          </div>
+          <div class="info-grid">
+            <div class="info-block"><h4>🎯 Indicações principais</h4><ul><li><strong>Oncologia (90%):</strong> estadiamento, metástases, resposta ao tratamento</li><li><strong>Neurologia (7%):</strong> demências, Alzheimer, epilepsia</li><li><strong>Cardiologia (3%):</strong> viabilidade miocárdica</li><li>Diferenciação nódulo benigno vs. maligno</li><li>Detecção de recidiva tumoral</li></ul></div>
+            <div class="info-block"><h4>⚡ Como funciona</h4><ul><li>FDG (glicose radioativa) é administrado IV</li><li>Células tumorais captam mais glicose → mais FDG</li><li>Imagem mostra "brilho" proporcional à atividade tumoral</li><li>CT simultânea fornece localização anatômica precisa</li><li>Fusão = mapa funcional + estrutural completo</li></ul></div>
+            <div class="info-block"><h4>⚠️ Preparo PET/CT (rigoroso)</h4><ul><li>Jejum de 6h obrigatório (glicemia compete com FDG)</li><li>Glicemia pré-exame ≤ 140–200 mg/dL</li><li>Diabéticos: protocolo especial</li><li>Repouso muscular: sem exercícios 24–48h antes</li><li>Evitar falar, mastigar e escrever (captação muscular)</li><li>Hidratação abundante pós-exame</li><li>Evitar contato com gestantes e crianças por horas</li></ul></div>
+            <div class="info-block"><h4>🔬 Novos radiofarmacos PET</h4><ul><li><strong>PSMA (Ga-68/F-18):</strong> câncer de próstata</li><li><strong>DOTATATE (Ga-68):</strong> tumores neuroendócrinos</li><li><strong>Florbetapir/Florbetaben:</strong> amiloide cerebral (Alzheimer)</li><li><strong>Rb-82:</strong> perfusão miocárdica (mais rápido que MIBI)</li><li><strong>F-18 NaF:</strong> cintilografia óssea PET</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" id="exam-spect">
+      <div class="exam-card reveal">
+        <div class="exam-head">
+          <div class="exam-title">SPECT / SPECT-CT</div>
+          <div class="exam-sub">Single Photon Emission Computed Tomography - versão 3D da cintilografia, combinada com CT para localização anatômica precisa. Reduz falsos-positivos e guia procedimentos.</div>
+          <div class="exam-badge">Tomografia Funcional 3D</div>
+        </div>
+        <div class="exam-body">
+          <div class="stat-row">
+            <div class="stat-box"><div class="stat-num">3D</div><div class="stat-label">Imagens tomográficas</div></div>
+            <div class="stat-box"><div class="stat-num">Tc-99m</div><div class="stat-label">Principal isótopo</div></div>
+            <div class="stat-box"><div class="stat-num">↓FP</div><div class="stat-label">Menos falsos-positivos vs planar</div></div>
+          </div>
+          <div class="info-grid">
+            <div class="info-block"><h4>💡 SPECT vs PET</h4><ul><li>SPECT usa fótons únicos (Tc-99m) - PET detecta pósitrons</li><li>SPECT tem menor resolução que PET</li><li>SPECT: mais acessível, maior variedade de radiofarmacos</li><li>PET: maior sensibilidade e quantificação</li><li>Complementares, não excludentes na prática</li></ul></div>
+            <div class="info-block"><h4>🏆 Aplicações SPECT</h4><ul><li>Perfusão miocárdica (coração em 3D)</li><li>Cintilografia óssea tomográfica</li><li>Linfonodo sentinela localização precisa</li><li>Paratireoide (adenomas)</li><li>Avaliação neurológica (perfusão cerebral)</li></ul></div>
+            <div class="info-block"><h4>🔧 Avanços tecnológicos</h4><ul><li>Detectores CZT: maior resolução, doses menores</li><li>Algoritmos iterativos melhoram qualidade</li><li>SPECT-CT: anatomia + função simultaneamente</li><li>Exames 50% mais rápidos = mais conforto ao paciente</li></ul></div>
+            <div class="info-block"><h4>⚖️ Quando escolher cada um</h4><ul><li>SPECT: cardiologia, ortopedia, paratireoide, linfonodo</li><li>PET: oncologia avançada, neurologia degenerativa</li><li>Custo PET &gt;&gt; SPECT (equipamento + radiofármaco)</li><li>Disponibilidade: SPECT mais distribuído no Brasil</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- TIPOS DE CINTILOGRAFIA -->
+<section class="section" id="tipos" style="background:var(--gray-900);">
+  <div class="container">
+    <div class="section-label reveal">Especialidades</div>
+    <h2 class="section-title reveal">Tipos de <span class="serif">cintilografia</span></h2>
+    <p class="section-desc reveal">Cada órgão tem seu exame específico. Conheça os principais tipos e suas indicações clínicas detalhadas.</p>
+    <div class="grid-3" style="margin-top:48px;">
+      <div class="card reveal d1">
+        <div class="card-icon">🦴</div>
+        <div class="card-title">Cintilografia Óssea</div>
+        <div class="card-desc">Avalia metabolismo ósseo. Detecta metástases, fraturas de estresse, osteomielite, artropatias, doenças osteometabólicas. Radiofármaco: MDP-Tc99m. Mapa do corpo inteiro.</div>
+        <div class="card-tag">Oncologia • Ortopedia • Reumatologia</div>
+      </div>
+      <div class="card reveal d2">
+        <div class="card-icon">🫀</div>
+        <div class="card-title">Cintilografia Miocárdica</div>
+        <div class="card-desc">Avalia circulação sanguínea do coração. Detecta isquemia e infarto. Feita em repouso + esforço. Radiofármaco: MIBI-Tc99m (sestamibi) ou Tálio-201.</div>
+        <div class="card-tag">Cardiologia • Isquemia • IAM</div>
+      </div>
+      <div class="card reveal d3">
+        <div class="card-icon">🦋</div>
+        <div class="card-title">Cintilografia da Tireoide</div>
+        <div class="card-desc">Avalia tamanho, forma e função da tireoide. Caracteriza nódulos (quentes/frios). Essencial antes de ablação com I-131 e no seguimento do câncer diferenciado.</div>
+        <div class="card-tag">Endocrinologia • Nódulos • Câncer</div>
+      </div>
+      <div class="card reveal d1">
+        <div class="card-icon">🫁</div>
+        <div class="card-title">Cintilografia Pulmonar</div>
+        <div class="card-desc">Avalia perfusão e ventilação pulmonar. Principal indicação: embolia pulmonar (TEP). Combina inalação (ventilação) + IV (perfusão). Menos radiação que angiotomografia.</div>
+        <div class="card-tag">Embolia • TEP • Pneumologia</div>
+      </div>
+      <div class="card reveal d2">
+        <div class="card-icon">🧠</div>
+        <div class="card-title">Cintilografia Cerebral</div>
+        <div class="card-desc">Avalia perfusão cerebral. Indicada para Alzheimer, epilepsia (localização do foco), AVC, morte encefálica. Radiofármaco: HMPAO-Tc99m.</div>
+        <div class="card-tag">Neurologia • Demências • Epilepsia</div>
+      </div>
+      <div class="card reveal d3">
+        <div class="card-icon">🫘</div>
+        <div class="card-title">Cintilografia Renal</div>
+        <div class="card-desc">DMSA avalia cortical renal e cicatrizes pós-ITU (padrão-ouro em pediatria). MAG3/DTPA avalia função relativa, fluxo e obstrução urinária.</div>
+        <div class="card-tag">Nefrologia • Urologia • Pediatria</div>
+      </div>
+      <div class="card reveal d1">
+        <div class="card-icon">🔵</div>
+        <div class="card-title">Cintilografia de Paratireoide</div>
+        <div class="card-desc">Localiza adenomas de paratireoide em hiperparatireoidismo. Usa subtração de imagens (MIBI - pertecnetato). Essencial no planejamento cirúrgico minimamente invasivo.</div>
+        <div class="card-tag">Cirurgia • Endocrinologia</div>
+      </div>
+      <div class="card reveal d2">
+        <div class="card-icon">🦾</div>
+        <div class="card-title">Linfocintilografia / Sentinela</div>
+        <div class="card-desc">Mapeia linfonodo sentinela em câncer de mama e melanoma. Radiofármaco injetado ao redor do tumor. Cirurgião usa sonda gama para localizar intraoperatoriamente.</div>
+        <div class="card-tag">Mastologia • Oncologia • Cirurgia</div>
+      </div>
+      <div class="card reveal d3">
+        <div class="card-icon">🔴</div>
+        <div class="card-title">Cintilografia Digestiva</div>
+        <div class="card-desc">Pesquisa sangramentos digestivos (hemácias marcadas), divertículo de Meckel, esvaziamento gástrico, refluxo gastroesofágico. Múltiplas indicações.</div>
+        <div class="card-tag">Gastrenterologia • Hemorragia</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- RADIOFARMACOS -->
+<section class="section" id="radiofarmacos" style="background:var(--black);">
+  <div class="container">
+    <div class="section-label reveal">Substâncias</div>
+    <h2 class="section-title reveal">Radiofarmacos: <span class="serif">o coração da especialidade</span></h2>
+    <p class="section-desc reveal">Substâncias radioativas que se concentram seletivamente em órgãos ou lesões específicas - a base de todo o diagnóstico e terapia em medicina nuclear.</p>
+    <div class="grid-2" style="margin-top:52px;">
+      <div>
+        <div class="grid-2" style="gap:16px;" class="reveal">
+          <div class="card reveal d1" style="padding:22px;">
+            <div class="card-icon">⚛️</div>
+            <div class="card-title">O que é um radiofármaco?</div>
+            <div class="card-desc">Composto de dois partes: <strong>radionuclídeo</strong> (parte radioativa emissora detectável) + <strong>vetor fisiológico</strong> (molécula que direciona ao órgão-alvo). Juntos formam a ferramenta de diagnóstico ou terapia.</div>
+          </div>
+          <div class="card reveal d2" style="padding:22px;">
+            <div class="card-icon">🎯</div>
+            <div class="card-title">Como age no organismo?</div>
+            <div class="card-desc">O vetor tem afinidade biológica específica pelo tecido-alvo. Ele "carrega" o radionuclídeo até o local certo, que emite radiação captada pelo equipamento de imagem.</div>
+          </div>
+          <div class="card reveal d3" style="padding:22px;">
+            <div class="card-icon">🛡️</div>
+            <div class="card-title">Segurança e eliminação</div>
+            <div class="card-desc">Meia-vida curta garante decaimento rápido. Eliminação principalmente pela urina. Hidratação acelera o processo. Reações adversas são extremamente raras na literatura.</div>
+          </div>
+          <div class="card reveal d4" style="padding:22px;">
+            <div class="card-icon">💊</div>
+            <div class="card-title">Uso terapêutico</div>
+            <div class="card-desc">Radiofarmacos emissores alfa e beta destroem células tumorais. Ex: I-131 (tireoide), Lu-177-PSMA (próstata), Ra-223 (metástases ósseas).</div>
+          </div>
+        </div>
+      </div>
+      <div class="radio-wrap reveal d2">
+        <div class="radio-head"><h3>☢️ Principais Radiofarmacos - Referência</h3></div>
+        <div class="radio-row header">
+          <div class="r-cell strong">Radiofármaco</div>
+          <div class="r-cell strong">Meia-vida</div>
+          <div class="r-cell strong">Aplicação principal</div>
+        </div>
+        <div class="radio-row"><div class="r-cell strong">Tc-99m (Tecnécio)</div><div class="r-cell red">6 horas</div><div class="r-cell">Ossos, coração, rim, pulmão - o mais versátil</div></div>
+        <div class="radio-row"><div class="r-cell strong">F-18 FDG</div><div class="r-cell red">110 min</div><div class="r-cell">PET/CT oncológico - glicose radioativa</div></div>
+        <div class="radio-row"><div class="r-cell strong">I-131 (Iodo)</div><div class="r-cell red">8 dias</div><div class="r-cell">Tireoide: diagnóstico e tratamento ablativo</div></div>
+        <div class="radio-row"><div class="r-cell strong">Gálio-68 PSMA</div><div class="r-cell red">68 min</div><div class="r-cell">PET/CT câncer de próstata</div></div>
+        <div class="radio-row"><div class="r-cell strong">Lu-177 PSMA</div><div class="r-cell red">6,7 dias</div><div class="r-cell">Terapia: próstata metastático (CPRC)</div></div>
+        <div class="radio-row"><div class="r-cell strong">Tálio-201</div><div class="r-cell red">73 horas</div><div class="r-cell">Perfusão miocárdica</div></div>
+        <div class="radio-row"><div class="r-cell strong">Gálio-68 DOTA</div><div class="r-cell red">68 min</div><div class="r-cell">Tumores neuroendócrinos (NET)</div></div>
+        <div class="radio-row"><div class="r-cell strong">Ra-223 (Rádio)</div><div class="r-cell red">11,4 dias</div><div class="r-cell">Terapia alfa: metástases ósseas</div></div>
+        <div class="radio-row"><div class="r-cell strong">In-111 Octreotida</div><div class="r-cell red">2,8 dias</div><div class="r-cell">SPECT tumores neuroendócrinos</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- DOENÇAS -->
+<section class="section" id="doencas" style="background:var(--gray-900);">
+  <div class="container">
+    <div class="section-label reveal">Indicações Clínicas</div>
+    <h2 class="section-title reveal">Doenças <span class="serif">diagnosticadas e tratadas</span></h2>
+    <p class="section-desc reveal">A medicina nuclear tem aplicação em praticamente todas as especialidades médicas.</p>
+    <div class="tabs reveal" style="margin-top:44px;">
+      <button class="tab active" onclick="showTab('disease','oncologia',this)">🧬 Oncologia</button>
+      <button class="tab" onclick="showTab('disease','cardio',this)">🫀 Cardiologia</button>
+      <button class="tab" onclick="showTab('disease','neuro',this)">🧠 Neurologia</button>
+      <button class="tab" onclick="showTab('disease','endocri',this)">🦋 Endocrinologia</button>
+      <button class="tab" onclick="showTab('disease','outras',this)">➕ Outras</button>
+    </div>
+    <div class="tab-panel active" id="disease-oncologia">
+      <div class="grid-2">
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;display:flex;gap:8px;align-items:center;font-size:0.95rem;"><span>🎗️</span>Câncer de Próstata</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">PET/CT PSMA detecta recidiva e metástases com altíssima precisão. Lu-177-PSMA é terapia revolucionária para doença metastática resistente à castração (CPRC). Modelo completo de teranóstica aprovado pela ANVISA.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;display:flex;gap:8px;align-items:center;font-size:0.95rem;"><span>🦋</span>Câncer de Tireoide</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">Após tireoidectomia, ablação com I-131 destrói tecido residual. Rastreamento de metástases com iodo radioativo. Cintilografia para controle pós-tratamento e seguimento.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;display:flex;gap:8px;align-items:center;font-size:0.95rem;"><span>🩸</span>Linfomas e Leucemias</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">PET/CT FDG é indispensável no estadiamento e avaliação de resposta em linfomas (Hodgkin, não-Hodgkin). Detecta doença residual mínima. Guia decisão de intensificar ou desescalar tratamento.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;display:flex;gap:8px;align-items:center;font-size:0.95rem;"><span>🫁</span>Câncer de Pulmão</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">PET/CT define extensão da doença, avalia nódulos solitários pulmonares (benigno vs. maligno), planeja radioterapia e avalia resposta à imunoterapia e quimioterapia.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;display:flex;gap:8px;align-items:center;font-size:0.95rem;"><span>🩹</span>Melanoma</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">Linfocintilografia identifica o linfonodo sentinela para biópsia minimamente invasiva. PET/CT detecta metástases à distância. Avalia resposta à imunoterapia.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;display:flex;gap:8px;align-items:center;font-size:0.95rem;"><span>⭕</span>Tumores Neuroendócrinos</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">PET/CT DOTATATE com altíssima sensibilidade. Terapia com Lu-177-DOTATATE para casos avançados. Modelo clássico de teranóstica neuroendócrina.</p></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="disease-cardio">
+      <div class="grid-2">
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">💔 Doença Arterial Coronariana</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">Cintilografia miocárdica com esforço e repouso avalia isquemia e infarto. Define significado funcional de lesões vistas na angiografia. Orienta decisão de revascularização.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">🫀 Insuficiência Cardíaca</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">Ventriculografia isotópica mede fração de ejeção com alta precisão. PET com FDG determina miocárdio hibernante (pode se recuperar após revascularização).</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">🫁 Embolia Pulmonar</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">Cintilografia pulmonar V/Q (ventilação/perfusão) altamente específica para TEP. Alternativa valiosa à angiotomografia, especialmente em grávidas - menor dose de radiação fetal.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">📊 Cardiomiopatias</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">PET com FDG avalia metabolismo miocárdico. MIBG-I-123 avalia inervação simpática (insuficiência cardíaca). Identificação de sarcoidose e miocardite cardíaca.</p></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="disease-neuro">
+      <div class="grid-2">
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">🧠 Doença de Alzheimer</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">PET com FDG mostra hipometabolismo característico. PET amiloide detecta placas beta-amiloide anos antes dos sintomas clínicos. Diferencia Alzheimer de outras demências.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">⚡ Epilepsia</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">SPECT ictérico vs. interictal localiza o foco epileptogênico para cirurgia. Essencial quando a RM não identifica o foco. Muda radicalmente o planejamento cirúrgico.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">🎯 Doença de Parkinson</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">DAT-scan avalia integridade do sistema dopaminérgico nigroestriatal. Diferencia Parkinson verdadeiro de tremor essencial e outras síndromes parkinsonianas.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">🔵 AVC</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">Cintilografia avalia perfusão pós-AVC e penumbra isquêmica (tecido ainda viável). Orienta decisões terapêuticas na fase aguda e monitora recuperação cerebral.</p></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="disease-endocri">
+      <div class="grid-2">
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">🦋 Hipertireoidismo</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">Cintilografia diferencia Doença de Graves (captação difusa) de nódulo autônomo tóxico. Terapia com I-131 é o tratamento definitivo do hipertireoidismo - oral, ambulatorial e muito eficaz.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">🔵 Hiperparatireoidismo</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">Cintilografia de paratireoide (sestamibi subtração) localiza adenomas com alta especificidade. Fundamental para paratireoidectomia minimamente invasiva - cirurgia menor, recuperação mais rápida.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">🩺 Feocromocitoma</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">MIBG-I-131/I-123 detecta feocromocitomas e paragangliomas com alta especificidade. PET/CT com F-18-DOPA. MIBG terapêutico para tumores irressecáveis.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">🦶 Pé Diabético</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">Cintilografia óssea e leucocitária diferencia osteomielite de artropatia de Charcot. PET/CT identifica infecção óssea com alta sensibilidade. Orienta decisão de amputação versus conservação.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">🧪 Insuficiência Adrenal</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">Cintilografia adrenal com colesterol marcado avalia a função cortical. Diferencia hiperplasia de adenoma. MIBG avalia a medula adrenal. Essencial antes de decisão cirúrgica.</p></div>
+      </div>
+    </div>
+    <div class="tab-panel" id="disease-outras">
+      <div class="grid-2">
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">🦴 Ortopedia e Traumatologia</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">Cintilografia óssea detecta fraturas ocultas, osteomielite, próteses com infecção, doença de Paget. Sensibilidade superior ao raio-X em estágios iniciais. Fase dinâmica, de sangue e tardia fornecem informações complementares.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">🫁 Pneumologia</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">Cintilografia V/Q para TEP, avaliação pré-operatória pulmonar, diagnóstico de bronquiectasias. Avalia função pulmonar regional antes de lobectomias e pneumonectomias.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">🧒 Pediatria</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">Cintilografia renal para cicatrizes (DMSA), pielonefrite, refluxo vésico-ureteral. Cintilografia óssea em suspeita de maus-tratos. Doses calculadas pelo peso com protocolo pediátrico estrito.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">💊 Reumatologia</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">PET/CT detecta vasculites de grandes vasos (arterite de Takayasu, arterite de células gigantes), polimialgia reumática, artrite em estágios iniciais e síndrome de febre de origem indeterminada (FOI).</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">🫀 Cirurgia Vascular</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">Cintilografia linfática avalia linfedema. PET/CT detecta vasculites. Avaliação pré-amputação para identificar nível adequado de corte. Estudo de fluxo sanguíneo regional nos membros.</p></div>
+        <div class="card"><h4 style="font-weight:700;margin-bottom:10px;font-size:0.95rem;">🦠 Infectologia</h4><p style="font-size:0.82rem;color:var(--gray-300);line-height:1.65;">PET/CT com FDG localiza focos de infecção em febre de origem indeterminada (FOI), endocardite, tuberculose extrapulmonar, abcessos ocultos. Cintilografia com leucócitos marcados para osteomielite crônica.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREPARO DOS EXAMES -->
+<section class="section" id="preparo" style="background:var(--black);">
+  <div class="container">
+    <div class="section-label reveal">Protocolo Clínico</div>
+    <h2 class="section-title reveal">Preparo dos <span class="serif">exames</span></h2>
+    <p class="section-desc reveal">Cada exame de medicina nuclear exige um preparo específico. O BKO é responsável por orientar o paciente com clareza e empatia - erros no preparo podem invalidar o exame e atrasar diagnósticos críticos.</p>
+
+    <div class="tabs reveal" style="margin-top:44px;">
+      <button class="tab active" onclick="showTab('prep','petct',this)">🔬 PET/CT FDG</button>
+      <button class="tab" onclick="showTab('prep','cintiosso',this)">🦴 Cint. Óssea</button>
+      <button class="tab" onclick="showTab('prep','cinticard',this)">🫀 Cint. Miocárdica</button>
+      <button class="tab" onclick="showTab('prep','tireoide',this)">🦋 Tireoide</button>
+      <button class="tab" onclick="showTab('prep','renal',this)">🫘 Renal/DMSA</button>
+      <button class="tab" onclick="showTab('prep','psma',this)">⚛️ PET/CT PSMA</button>
+    </div>
+
+    <div class="tab-panel active" id="prep-petct">
+      <div class="exam-card">
+        <div class="exam-head">
+          <div class="exam-title">PET/CT com FDG (F-18)</div>
+          <div class="exam-sub">Tomografia por emissão de pósitrons com glicose radioativa. O exame mais utilizado em oncologia para estadiamento, avaliação de resposta e detecção de recidiva.</div>
+          <div class="exam-badge">☢ F-18 FDG - meia-vida 110 minutos</div>
+        </div>
+        <div class="exam-body">
+          <div class="stat-row">
+            <div class="stat-box"><div class="stat-num">6h</div><div class="stat-label">Jejum obrigatório</div></div>
+            <div class="stat-box"><div class="stat-num">&lt;140</div><div class="stat-label">Glicemia mg/dL</div></div>
+            <div class="stat-box"><div class="stat-num">60min</div><div class="stat-label">Captação pós-injeção</div></div>
+          </div>
+          <div class="info-grid">
+            <div class="info-block">
+              <h4>✅ O que o paciente DEVE fazer</h4>
+              <ul>
+                <li>Jejum de 6 horas (sólidos e líquidos calóricos)</li>
+                <li>Pode tomar água sem açúcar à vontade</li>
+                <li>Continuar medicações habituais (com exceção dos orientados)</li>
+                <li>Usar roupas confortáveis sem metal</li>
+                <li>Informar diabetes, gestação, amamentação</li>
+                <li>Trazer pedido médico e exames anteriores</li>
+                <li>Evitar atividade física intensa 24h antes</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>❌ O que o paciente NÃO DEVE fazer</h4>
+              <ul>
+                <li>Consumir alimentos ou bebidas calóricas (suco, leite, café com açúcar)</li>
+                <li>Fazer exercício físico nas 24h anteriores</li>
+                <li>Usar glicose endovenosa antes do exame</li>
+                <li>Ser diabético com glicemia acima de 200 mg/dL sem avisar</li>
+                <li>Descontinuar corticoides sem orientação médica</li>
+                <li>Amamentar nas 12h após o exame</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>⏰ No dia do exame</h4>
+              <ul>
+                <li>Chegar com 30 minutos de antecedência</li>
+                <li>Glicemia capilar é verificada antes da injeção</li>
+                <li>Injeção IV do FDG (indolor, duração em segundos)</li>
+                <li>Repouso em ambiente silencioso e escuro por 60 min</li>
+                <li>Aquisição das imagens: 15 a 30 minutos</li>
+                <li>Alta imediata após o exame</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>📋 Pós-exame - orientações</h4>
+              <ul>
+                <li>Hidratação abundante (acelera eliminação renal)</li>
+                <li>Evitar contato prolongado com crianças e gestantes por 6h</li>
+                <li>Pode comer normalmente após o exame</li>
+                <li>Não amamentar por 12 a 24h (descarte o leite)</li>
+                <li>Laudo disponível em 24 a 72h</li>
+              </ul>
+            </div>
+          </div>
+          <div class="alert" style="margin-top:24px;">
+            <h4>⚠️ Alerta BKO - Diabéticos</h4>
+            <p>Pacientes diabéticos em uso de insulina devem ser orientados com atenção especial. A glicemia elevada compete com o FDG na captação celular, prejudicando a qualidade do exame. Se a glicemia estiver acima de 200 mg/dL, o exame pode ser necessário reagendar. Sempre converse com o médico nuclear ou técnico antes de confirmar o agendamento.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="prep-cintiosso">
+      <div class="exam-card">
+        <div class="exam-head">
+          <div class="exam-title">Cintilografia Óssea</div>
+          <div class="exam-sub">Avalia metabolismo ósseo em todo o esqueleto. Detecta metástases, fraturas, osteomielite e doença de Paget com alta sensibilidade antes de alterações vistas no raio-X.</div>
+          <div class="exam-badge">☢ Tc-99m MDP - meia-vida 6 horas</div>
+        </div>
+        <div class="exam-body">
+          <div class="stat-row">
+            <div class="stat-box"><div class="stat-num">3h</div><div class="stat-label">Aguardo pós-injeção</div></div>
+            <div class="stat-box"><div class="stat-num">2L</div><div class="stat-label">Água a ingerir</div></div>
+            <div class="stat-box"><div class="stat-num">30min</div><div class="stat-label">Duração da varredura</div></div>
+          </div>
+          <div class="info-grid">
+            <div class="info-block">
+              <h4>✅ Preparo e cuidados</h4>
+              <ul>
+                <li>Não requer jejum para a fase tardia</li>
+                <li>Hidratação intensa após a injeção (2 litros de água)</li>
+                <li>Urinar com frequência para eliminar radiofármaco não fixado</li>
+                <li>Retirar adornos metálicos, próteses externas</li>
+                <li>Informar uso de bifosfonatos e corticoides</li>
+                <li>Trazer exames de imagem anteriores para correlação</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>📋 Fases do exame</h4>
+              <ul>
+                <li><strong>Fase angiográfica (0-5 min):</strong> fluxo sanguíneo regional</li>
+                <li><strong>Fase de sangue (5 min):</strong> perfusão tecidual</li>
+                <li><strong>Fase tardia (2-3h):</strong> metabolismo ósseo - a mais importante</li>
+                <li><strong>SPECT-CT:</strong> imagem tomográfica 3D de área específica</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="prep-cinticard">
+      <div class="exam-card">
+        <div class="exam-head">
+          <div class="exam-title">Cintilografia Miocárdica de Perfusão</div>
+          <div class="exam-sub">Avalia irrigação sanguínea do coração em repouso e esforço. Identifica isquemia (redução do fluxo) e infarto (ausência permanente). Guia decisão de cateterismo e cirurgia.</div>
+          <div class="exam-badge">☢ Tc-99m Sestamibi - meia-vida 6 horas</div>
+        </div>
+        <div class="exam-body">
+          <div class="stat-row">
+            <div class="stat-box"><div class="stat-num">2</div><div class="stat-label">Dias de exame</div></div>
+            <div class="stat-box"><div class="stat-num">4h</div><div class="stat-label">Jejum no dia</div></div>
+            <div class="stat-box"><div class="stat-num">48h</div><div class="stat-label">Suspensão betabloq.</div></div>
+          </div>
+          <div class="info-grid">
+            <div class="info-block">
+              <h4>⚠️ Medicações importantes</h4>
+              <ul>
+                <li>Suspender betabloqueadores 48h antes (se prescrição médica)</li>
+                <li>Suspender nitratos de ação prolongada 12h antes</li>
+                <li>Suspender cafeína e derivados 24-48h antes</li>
+                <li>Não usar vasodilatadores coronarianos sem orientação</li>
+                <li>Manter anti-hipertensivos conforme orientação médica</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>🏃 Protocolo de esforço</h4>
+              <ul>
+                <li>Esteira ou farmacológico (adenosina, dipiridamol)</li>
+                <li>Injeção do radiofármaco no pico do esforço</li>
+                <li>Fase de repouso geralmente no segundo dia</li>
+                <li>Trazer laudo de ECG recente e relatório médico</li>
+                <li>Roupa e tênis confortáveis para a esteira</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="prep-tireoide">
+      <div class="exam-card">
+        <div class="exam-head">
+          <div class="exam-title">Cintilografia e Terapia com Iodo (I-131 / I-123)</div>
+          <div class="exam-sub">Avalia função tireoidiana e permite tratamento definitivo do hipertireoidismo e ablação de câncer residual. Exige preparo rigoroso para maximizar captação de iodo.</div>
+          <div class="exam-badge">☢ Iodo-131 - meia-vida 8 dias</div>
+        </div>
+        <div class="exam-body">
+          <div class="stat-row">
+            <div class="stat-box"><div class="stat-num">2-4</div><div class="stat-label">Semanas dieta</div></div>
+            <div class="stat-box"><div class="stat-num">4-6h</div><div class="stat-label">Jejum pré-cápsula</div></div>
+            <div class="stat-box"><div class="stat-num">7d</div><div class="stat-label">Isolamento terapêutico</div></div>
+          </div>
+          <div class="info-grid">
+            <div class="info-block">
+              <h4>🥗 Dieta pobre em iodo (2-4 semanas)</h4>
+              <ul>
+                <li>Evitar frutos do mar, mariscos, algas</li>
+                <li>Evitar sal iodado (usar sal sem iodo)</li>
+                <li>Evitar laticínios (leite, queijo, iogurte)</li>
+                <li>Evitar gema de ovo, corantes vermelhos</li>
+                <li>Evitar medicamentos com iodo (amiodarona, contraste)</li>
+                <li>Suspender levotiroxina conforme protocolo (2-4 semanas)</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>🏥 Terapia com I-131 - Internação</h4>
+              <ul>
+                <li>Internação em quarto de radioproteção isolado (quarto blindado)</li>
+                <li>Isolamento de 2 a 7 dias conforme dose administrada</li>
+                <li>Visitas restritas - crianças e gestantes proibidas</li>
+                <li>Orientações de alta: distância de 1 metro de outras pessoas</li>
+                <li>Dormir separado do cônjuge por 7 dias após alta</li>
+                <li>Não engravidar por 6 meses após o tratamento</li>
+              </ul>
+            </div>
+          </div>
+          <div class="alert" style="margin-top:24px;">
+            <h4>⚠️ Atenção BKO - Gestação absoluta</h4>
+            <p>A cintilografia e terapia com iodo são <strong>absolutamente contraindicadas na gestação</strong>. Sempre perguntar a toda mulher em idade fértil sobre possibilidade de gestação antes de agendar. Teste de gravidez pode ser solicitado. Este é um ponto crítico de segurança do serviço.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="prep-renal">
+      <div class="exam-card">
+        <div class="exam-head">
+          <div class="exam-title">Cintilografia Renal (DMSA e MAG3)</div>
+          <div class="exam-sub">DMSA avalia córtex renal e cicatrizes; MAG3 avalia função e drenagem. Fundamentais em pediatria para diagnóstico de refluxo vesicoureteral e pielonefrite.</div>
+          <div class="exam-badge">☢ Tc-99m DMSA / MAG3 - meia-vida 6 horas</div>
+        </div>
+        <div class="exam-body">
+          <div class="info-grid">
+            <div class="info-block">
+              <h4>✅ DMSA - Preparo</h4>
+              <ul>
+                <li>Não requer jejum</li>
+                <li>Boa hidratação no dia</li>
+                <li>Imagens obtidas 2-3h após injeção</li>
+                <li>Imagens estáticas, sem necessidade de cateter</li>
+                <li>Criança pode ser sedada se necessário</li>
+                <li>Informar função renal (creatinina recente)</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>✅ MAG3 - Preparo</h4>
+              <ul>
+                <li>Hidratação adequada (1 copo d'água antes)</li>
+                <li>Bexiga vazia antes do início</li>
+                <li>Pode exigir cateter urinário em casos específicos</li>
+                <li>Furosemida pode ser administrada durante o exame</li>
+                <li>Exame dinâmico: 20-30 minutos contínuos</li>
+                <li>Resultado imediato sobre fluxo e obstrução</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="prep-psma">
+      <div class="exam-card">
+        <div class="exam-head">
+          <div class="exam-title">PET/CT com PSMA (Gálio-68 / F-18)</div>
+          <div class="exam-sub">Revolucionou o diagnóstico do câncer de próstata. Detecta recidiva com PSA muito baixo (< 0,5 ng/mL). Guia a terapia com Lu-177-PSMA - teranóstica da próstata.</div>
+          <div class="exam-badge">☢ Ga-68 PSMA - meia-vida 68 minutos</div>
+        </div>
+        <div class="exam-body">
+          <div class="stat-row">
+            <div class="stat-box"><div class="stat-num">4h</div><div class="stat-label">Jejum leve</div></div>
+            <div class="stat-box"><div class="stat-num">60min</div><div class="stat-label">Captação pós-injeção</div></div>
+            <div class="stat-box"><div class="stat-num">30min</div><div class="stat-label">Aquisição de imagens</div></div>
+          </div>
+          <div class="info-grid">
+            <div class="info-block">
+              <h4>✅ Preparo</h4>
+              <ul>
+                <li>Jejum de 4 horas (preferível, não obrigatório)</li>
+                <li>Hidratação com água livre</li>
+                <li>Não há restrição específica de medicamentos</li>
+                <li>Urinar antes das imagens (reduz artefatos pélvicos)</li>
+                <li>Trazer PSA recente e relatório de biópsia/cirurgia</li>
+                <li>Informar uso de hormônioterapia (impacta expressão de PSMA)</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>📋 Informações ao paciente</h4>
+              <ul>
+                <li>Exame não invasivo, sem dor</li>
+                <li>Injeção IV rápida e indolor</li>
+                <li>Aguardar 60 min em repouso (sem exercício)</li>
+                <li>Resultados em 24-48h</li>
+                <li>Pode ser sequenciado com Lu-177-PSMA (terapia)</li>
+                <li>Exame de alta precisão - PSA &lt; 0,5 ng/mL</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEGURANÇA E RADIAÇÃO -->
+<section class="section" id="seguranca" style="background:var(--gray-900);">
+  <div class="container">
+    <div class="section-label reveal">Radioproteção</div>
+    <h2 class="section-title reveal">Segurança <span class="serif">e radiação</span></h2>
+    <p class="section-desc reveal">A medicina nuclear usa doses mínimas de radiação, rigidamente controladas pelo princípio ALARA. Entender isso é essencial para tranquilizar pacientes ansiosos.</p>
+
+    <div class="grid-2" style="margin-top:52px;gap:44px;">
+      <div>
+        <div class="card reveal d1" style="margin-bottom:20px;">
+          <div class="card-icon">☢️</div>
+          <div class="card-title">Princípio ALARA</div>
+          <div class="card-desc"><strong>As Low As Reasonably Achievable</strong> - a dose de radiação usada é a menor possível para obter imagens de qualidade diagnóstica. É o princípio fundamental de toda radioproteção em medicina nuclear.</div>
+        </div>
+        <div class="card reveal d2" style="margin-bottom:20px;">
+          <div class="card-icon">⚖️</div>
+          <div class="card-title">Benefício vs. Risco</div>
+          <div class="card-desc">O benefício diagnóstico e terapêutico <strong>sempre supera</strong> o risco da baixa dose de radiação. Um PET/CT equivale à exposição de um voo transatlântico. O tumor não diagnosticado é infinitamente mais perigoso.</div>
+        </div>
+        <div class="card reveal d3" style="margin-bottom:20px;">
+          <div class="card-icon">🔢</div>
+          <div class="card-title">Comparativo de doses (mSv)</div>
+          <div class="card-desc">Raio-X de tórax: <strong>0,1 mSv</strong> | Tomografia abdominal: <strong>8 mSv</strong> | Cintilografia óssea Tc-99m: <strong>3-4 mSv</strong> | PET/CT FDG: <strong>7-10 mSv</strong> | Exposição natural anual: <strong>2-3 mSv</strong>.</div>
+        </div>
+        <div class="card reveal d4">
+          <div class="card-icon">👶</div>
+          <div class="card-title">Grupos de atenção especial</div>
+          <div class="card-desc">Gestantes: contraindicado na maioria dos exames (especialmente I-131 e F-18-FDG). Lactantes: suspender amamentação por período variável. Crianças: dose calculada por peso. Mulheres em idade fértil: sempre perguntar sobre gestação.</div>
+        </div>
+      </div>
+
+      <div class="reveal d2">
+        <div class="compare-wrap">
+          <div class="compare-head">
+            <h3 style="font-size:0.95rem;font-weight:700;">Dose × Risco - Contexto Real</h3>
+          </div>
+          <div class="compare-row header">
+            <div class="c-cell">Situação / Exame</div>
+            <div class="c-cell">Dose (mSv)</div>
+            <div class="c-cell">Risco relativo</div>
+          </div>
+          <div class="compare-row">
+            <div class="c-cell">Exposição natural anual</div>
+            <div class="c-cell" style="color:var(--red);font-weight:700;">2,4</div>
+            <div><div class="bar-wrap"><div class="bar" style="width:20%"></div></div></div>
+          </div>
+          <div class="compare-row">
+            <div class="c-cell">Voo SP-Europa</div>
+            <div class="c-cell" style="color:var(--red);font-weight:700;">0,08</div>
+            <div><div class="bar-wrap"><div class="bar" style="width:5%"></div></div></div>
+          </div>
+          <div class="compare-row">
+            <div class="c-cell">Raio-X de tórax</div>
+            <div class="c-cell" style="color:var(--red);font-weight:700;">0,1</div>
+            <div><div class="bar-wrap"><div class="bar" style="width:5%"></div></div></div>
+          </div>
+          <div class="compare-row">
+            <div class="c-cell">Cintilografia Óssea</div>
+            <div class="c-cell" style="color:var(--red);font-weight:700;">3-4</div>
+            <div><div class="bar-wrap"><div class="bar" style="width:35%"></div></div></div>
+          </div>
+          <div class="compare-row">
+            <div class="c-cell">PET/CT com FDG</div>
+            <div class="c-cell" style="color:var(--red);font-weight:700;">7-10</div>
+            <div><div class="bar-wrap"><div class="bar" style="width:65%"></div></div></div>
+          </div>
+          <div class="compare-row">
+            <div class="c-cell">TC de abdômen</div>
+            <div class="c-cell" style="color:var(--red);font-weight:700;">8-10</div>
+            <div><div class="bar-wrap"><div class="bar" style="width:70%"></div></div></div>
+          </div>
+          <div class="compare-row">
+            <div class="c-cell">Trabalhador nuclear/ano</div>
+            <div class="c-cell" style="color:var(--red);font-weight:700;">20 (limite)</div>
+            <div><div class="bar-wrap"><div class="bar" style="width:100%"></div></div></div>
+          </div>
+        </div>
+
+        <div class="card reveal" style="margin-top:20px;">
+          <div class="card-icon">🛡️</div>
+          <div class="card-title">Regulamentação brasileira - CNEN</div>
+          <div class="card-desc">Toda unidade de medicina nuclear no Brasil deve ser licenciada pela <strong>Comissão Nacional de Energia Nuclear (CNEN)</strong>. Isso inclui aprovação do espaço físico, equipamentos, equipes, protocolos de radioproteção e sistema de gerenciamento de resíduos radioativos. Sem licença CNEN, o serviço não pode funcionar.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dodont" style="margin-top:0;">
+      <div class="do-col reveal d1">
+        <h3>✓ O que dizer ao paciente ansioso</h3>
+        <ul>
+          <li>A dose de radiação é menor que uma tomografia convencional</li>
+          <li>O radiofármaco é eliminado pela urina em poucas horas</li>
+          <li>O procedimento é indolor e não invasivo</li>
+          <li>Equipamentos têm manutenção e calibração rigorosas</li>
+          <li>O benefício diagnóstico supera amplamente o risco mínimo</li>
+          <li>Médico nuclear acompanha todo o protocolo</li>
+          <li>A CNEN regulamenta e fiscaliza todos os serviços</li>
+        </ul>
+      </div>
+      <div class="dont-col reveal d2">
+        <h3>✗ O que NÃO dizer ao paciente</h3>
+        <ul>
+          <li>"Não tem perigo nenhum" - há radiação, apenas controlada</li>
+          <li>"É igualzinho a uma chapa" - é bem mais específico e funcional</li>
+          <li>Minimizar a importância das orientações de preparo</li>
+          <li>Dizer que é "radioativo mesmo" de forma alarmante</li>
+          <li>"Esse exame causa câncer" - absolutamente falso com doses diagnósticas</li>
+          <li>Inventar informações sobre o laudo ou resultado</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TERANÓSTICA -->
+<section class="section" id="teranostica" style="background:var(--black);">
+  <div class="container">
+    <div class="section-label reveal">Inovação</div>
+    <h2 class="section-title reveal">Teranóstica: <span class="serif">diagnosticar e tratar</span></h2>
+    <p class="section-desc reveal">A teranóstica une diagnóstico e terapia no mesmo alvo molecular - o futuro (e presente) da medicina de precisão. DASA é referência nacional nessa modalidade.</p>
+
+    <div class="grid-3" style="margin-top:52px;">
+      <div class="card reveal d1">
+        <div class="card-icon">🎯</div>
+        <div class="card-title">O conceito</div>
+        <div class="card-desc">Teranóstica = <strong>Terapia + Diagnóstico</strong>. O mesmo alvo molecular é usado para diagnóstico (com radiofármaco de imagem) e tratamento (com radiofármaco terapêutico). Permite personalizar a dose para cada paciente.</div>
+        <span class="card-tag">Medicina de Precisão</span>
+      </div>
+      <div class="card reveal d2">
+        <div class="card-icon">🧬</div>
+        <div class="card-title">PSMA - Próstata</div>
+        <div class="card-desc">Diagnóstico com <strong>Ga-68-PSMA PET/CT</strong>. Se positivo, terapia com <strong>Lu-177-PSMA</strong>. Aprovado pela ANVISA. Revolucionou o tratamento do câncer de próstata metastático resistente à castração (mCRPC).</div>
+        <span class="card-tag">ANVISA Aprovado</span>
+      </div>
+      <div class="card reveal d3">
+        <div class="card-icon">⭕</div>
+        <div class="card-title">DOTATATE - Neuroendócrinos</div>
+        <div class="card-desc">Diagnóstico com <strong>Ga-68-DOTATATE PET/CT</strong>. Terapia com <strong>Lu-177-DOTATATE (Lutathera®)</strong>. Para tumores neuroendócrinos avançados. Aumenta sobrevida e qualidade de vida.</div>
+        <span class="card-tag">Lutathera® Aprovado</span>
+      </div>
+      <div class="card reveal d4">
+        <div class="card-icon">☣️</div>
+        <div class="card-title">Rádio-223 - Ossos</div>
+        <div class="card-desc">Emite partículas alfa de curtíssimo alcance. Actua diretamente nas metástases ósseas com mínimo efeito sobre tecidos vizinhos. Único radiofármaco alfa aprovado globalmente para metástases ósseas de câncer de próstata.</div>
+        <span class="card-tag">Emissor Alfa</span>
+      </div>
+      <div class="card reveal d1">
+        <div class="card-icon">🔬</div>
+        <div class="card-title">FAP - Fibroblastos</div>
+        <div class="card-desc">Alvo emergente: proteína de ativação de fibroblastos (FAP) expressa no estroma tumoral de muitos tumores. Diagnóstico com F-18-FAPI e Ga-68-FAPI. Terapia em desenvolvimento. Futuro próximo.</div>
+        <span class="card-tag">Em Pesquisa</span>
+      </div>
+      <div class="card reveal d2">
+        <div class="card-icon">💉</div>
+        <div class="card-title">Actínio-225 - Próxima geração</div>
+        <div class="card-desc">Emissor alfa de cadeia longa. Ac-225-PSMA em ensaios clínicos com resultados impressionantes. Maior poder de destruição tumoral com distância de ação de apenas 40-80 μm. Pesquisa acelerada global.</div>
+        <span class="card-tag">Futuro da Teranóstica</span>
+      </div>
+    </div>
+
+    <div class="highlight-box reveal" style="margin-top:44px;max-width:860px;">
+      <p>⚡ <strong>BKO e Teranóstica:</strong> Pacientes em protocolo de teranóstica passam por ciclos de tratamento que exigem agendamento coordenado de diagnóstico e terapia, com internações, protocolos de radioproteção específicos e follow-up rigoroso. O BKO é peça-chave nessa coordenação - erros de agendamento podem comprometer um ciclo terapêutico inteiro.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HUMANIZAÇÃO E EMPATIA -->
+<section class="section" id="humanizacao" style="background:var(--gray-900);">
+  <div class="container">
+    <div class="section-label reveal">Atendimento</div>
+    <h2 class="section-title reveal">Humanização <span class="serif">e empatia</span></h2>
+    <p class="section-desc reveal">Em medicina nuclear, o paciente frequentemente está em um momento vulnerável - diagnóstico de câncer, follow-up de tumor, aguardando resultado crítico. Humanização não é detalhe, é parte do tratamento.</p>
+
+    <div class="grid-2" style="margin-top:52px;gap:48px;">
+      <div>
+        <div class="section-label">Pilares do atendimento humanizado</div>
+        <div class="grid-2" style="gap:16px;margin-top:20px;">
+          <div class="pillar reveal d1">
+            <div class="pillar-icon">👂</div>
+            <div class="pillar-name">Escuta ativa</div>
+            <div class="pillar-desc">Ouvir o paciente sem interromper. Validar suas preocupações. Não minimizar o medo do desconhecido.</div>
+          </div>
+          <div class="pillar reveal d2">
+            <div class="pillar-icon">🤝</div>
+            <div class="pillar-name">Empatia genuína</div>
+            <div class="pillar-desc">Colocar-se no lugar do paciente. Reconhecer que cada pessoa está passando por uma situação única e difícil.</div>
+          </div>
+          <div class="pillar reveal d3">
+            <div class="pillar-icon">💬</div>
+            <div class="pillar-name">Comunicação clara</div>
+            <div class="pillar-desc">Explicar o procedimento em linguagem simples, sem jargão técnico. Confirmar que o paciente entendeu.</div>
+          </div>
+          <div class="pillar reveal d4">
+            <div class="pillar-icon">⏱️</div>
+            <div class="pillar-name">Pontualidade e respeito</div>
+            <div class="pillar-desc">Pacientes aguardam com ansiedade. Atrasos sem comunicação aumentam o sofrimento desnecessariamente.</div>
+          </div>
+          <div class="pillar reveal d1">
+            <div class="pillar-icon">🔒</div>
+            <div class="pillar-name">Privacidade</div>
+            <div class="pillar-desc">Nunca discutir dados do paciente em voz alta em locais públicos. Sigilo absoluto é obrigação ética e legal.</div>
+          </div>
+          <div class="pillar reveal d2">
+            <div class="pillar-icon">🌡️</div>
+            <div class="pillar-name">Conforto ambiental</div>
+            <div class="pillar-desc">Temperatura, iluminação e silêncio durante captação (pós-injeção) são críticos para a qualidade do exame.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d2">
+        <div class="section-label">O paciente de medicina nuclear - quem é ele?</div>
+        <div style="margin-top:20px;display:flex;flex-direction:column;gap:14px;">
+          <div class="human-step">
+            <div class="human-step-num">1</div>
+            <div class="human-step-text">
+              <h4>Paciente oncológico em estadiamento</h4>
+              <p>Acabou de receber diagnóstico de câncer. Está em choque, assustado. O exame vai definir se o tumor se espalhou. Cada minuto de espera é agonizante. Precisa de informação clara e presença acolhedora.</p>
+            </div>
+          </div>
+          <div class="human-step">
+            <div class="human-step-num">2</div>
+            <div class="human-step-text">
+              <h4>Paciente em follow-up de tumor tratado</h4>
+              <p>Já tratou câncer mas vive com o medo constante da recidiva. O PET/CT é o exame mais importante do ano. Ansiedade extrema é comum. Acolhimento humano reduz o estresse antes do exame.</p>
+            </div>
+          </div>
+          <div class="human-step">
+            <div class="human-step-num">3</div>
+            <div class="human-step-text">
+              <h4>Idoso sozinho - cardíaco ou neurológico</h4>
+              <p>Frequentemente sem acompanhante, com mobilidade reduzida e dificuldade de compreensão. Precisa de orientação redobrada, paciência e ajuda logística.</p>
+            </div>
+          </div>
+          <div class="human-step">
+            <div class="human-step-num">4</div>
+            <div class="human-step-text">
+              <h4>Paciente em internação para I-131</h4>
+              <p>Ficará isolado por dias, sem visita de família e sem companhia. A equipe de saúde é sua única interação. Atenção humanizada não pode faltar - é também parte da terapia.</p>
+            </div>
+          </div>
+          <div class="human-step">
+            <div class="human-step-num">5</div>
+            <div class="human-step-text">
+              <h4>Criança para exame pediátrico</h4>
+              <p>Medo do ambiente hospitalar, das seringas e de pessoas desconhecidas. A comunicação deve incluir pais e adaptar-se à idade. Tom de voz suave e paciência são fundamentais.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dodont" style="margin-top:52px;">
+      <div class="do-col reveal d1">
+        <h3>✓ Boas práticas de atendimento BKO</h3>
+        <ul>
+          <li>Receber o paciente pelo nome e com saudação calorosa</li>
+          <li>Confirmar e explicar o preparo com clareza antes do exame</li>
+          <li>Informar sobre tempo de espera e etapas do procedimento</li>
+          <li>Perguntar se há dúvidas após cada explicação</li>
+          <li>Manter tom de voz calmo e tranquilizador</li>
+          <li>Chamar o paciente pelo nome durante todo o atendimento</li>
+          <li>Oferecer informação sobre resultado/laudo com clareza de prazo</li>
+          <li>Registrar corretamente todas as informações no sistema</li>
+        </ul>
+      </div>
+      <div class="dont-col reveal d2">
+        <h3>✗ Erros que devem ser evitados</h3>
+        <ul>
+          <li>Tratar o paciente como "o do PET/CT" ou "o da cintilografia"</li>
+          <li>Falar ao telefone sobre outros pacientes em voz alta</li>
+          <li>Dar informações sobre o resultado do exame (não é função do BKO)</li>
+          <li>Ignorar sinais de ansiedade ou sofrimento emocional</li>
+          <li>Apressar o paciente durante as orientações</li>
+          <li>Usar linguagem técnica sem explicar o significado</li>
+          <li>Agendar exame sem verificar o preparo adequado</li>
+          <li>Esquecer de perguntar sobre gestação em mulheres</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAPEL DO BKO -->
+<section class="section" id="bko" style="background:var(--black);">
+  <div class="container">
+    <div class="section-label reveal">Função Estratégica</div>
+    <h2 class="section-title reveal">O papel do <span class="serif">BKO na DASA</span></h2>
+    <p class="section-desc reveal">O BKO receptivo é o principal ponto de contato entre o paciente e o serviço de medicina nuclear. Sua atuação impacta diretamente a qualidade dos exames, a experiência do paciente e a eficiência operacional.</p>
+
+    <div class="grid-3" style="margin-top:52px;">
+      <div class="card reveal d1">
+        <div class="card-icon">📞</div>
+        <div class="card-title">Recepção e Triagem</div>
+        <div class="card-desc">Primeiro contato do paciente com o serviço. Identifica o tipo de exame solicitado, verifica pedido médico, coleta informações clínicas relevantes e direciona o paciente para agendamento correto.</div>
+        <span class="card-tag">Porta de entrada</span>
+      </div>
+      <div class="card reveal d2">
+        <div class="card-icon">📅</div>
+        <div class="card-title">Agendamento Estratégico</div>
+        <div class="card-desc">Aloca o horário conforme disponibilidade de equipamento, radiofármaco e equipe técnica. Considera preparo, internação se necessária, e coordena múltiplos ciclos de teranóstica. Erros de agenda têm impacto direto no exame.</div>
+        <span class="card-tag">Alta responsabilidade</span>
+      </div>
+      <div class="card reveal d3">
+        <div class="card-icon">📋</div>
+        <div class="card-title">Orientação de Preparo</div>
+        <div class="card-desc">Explica detalhadamente o preparo específico de cada exame. Garante que o paciente compreendeu as restrições alimentares, medicamentosas e comportamentais. Confirma preparo na recepção do dia do exame.</div>
+        <span class="card-tag">Crítico para qualidade</span>
+      </div>
+      <div class="card reveal d4">
+        <div class="card-icon">🔄</div>
+        <div class="card-title">Gestão de Fluxo</div>
+        <div class="card-desc">Controla o fluxo de pacientes no serviço - garante que exames de radiofarmacos com meia-vida curta (Ga-68: 68 min) sejam realizados no tempo exato. Coordena sala de captação pós-injeção.</div>
+        <span class="card-tag">Gestão de tempo</span>
+      </div>
+      <div class="card reveal d1">
+        <div class="card-icon">📡</div>
+        <div class="card-title">Comunicação com Equipe</div>
+        <div class="card-desc">Interface entre paciente, médico nuclear, físico, técnicos e enfermagem. Reporta intercorrências, contraindicações identificadas e necessidades especiais (mobilidade, idioma, estado emocional) antes do atendimento clínico.</div>
+        <span class="card-tag">Coordenação</span>
+      </div>
+      <div class="card reveal d2">
+        <div class="card-icon">🖥️</div>
+        <div class="card-title">Sistema NAV DASA</div>
+        <div class="card-desc">Domínio da plataforma Nav Dasa: agendamento, resultados, histórico do paciente, confirmação de convênio e solicitações especiais. O Nav é o sistema central de toda operação da DASA para pacientes.</div>
+        <span class="card-tag">Sistema DASA</span>
+      </div>
+    </div>
+
+    <div class="highlight-box reveal" style="margin-top:44px;max-width:860px;">
+      <p>🎯 <strong>Por que o BKO é tão importante em medicina nuclear?</strong> Em medicina nuclear, ao contrário de outros serviços, o radiofármaco é produzido ou encomendado especificamente para o horário agendado. Uma falta sem aviso ou um preparo errado pode significar perda total do radiofármaco (custo altíssimo), atraso no diagnóstico de um paciente oncológico, e retrabalho da equipe inteira. O BKO é guardião desse processo.</p>
+    </div>
+
+    <div style="margin-top:52px;">
+      <div class="section-label reveal">Fluxo do Atendimento BKO</div>
+      <div class="accordion reveal" style="margin-top:28px;">
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <span>1️⃣ Recepção da solicitação (telefone/sistema)</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">Identificar o exame solicitado no pedido médico. Verificar se o serviço realiza aquele procedimento específico. Coletar dados do paciente: nome completo, CPF, data de nascimento, convênio, telefone para contato. Verificar a indicação clínica do exame - isso ajuda a priorizar urgências oncológicas.</div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <span>2️⃣ Verificação de convênio e autorização</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">Confirmar cobertura do plano para o exame solicitado. Procedimentos de medicina nuclear (especialmente PET/CT e teranóstica) muitas vezes exigem autorização prévia. Orientar o paciente sobre o processo de autorização quando necessário. Registrar número de autorização no sistema.</div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <span>3️⃣ Agendamento e confirmação de radiofármaco</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">Alocar horário no sistema conforme disponibilidade. Para Gálio-68 (meia-vida 68 min) e outros radiofarmacos de produção programada, o horário deve ser exato. Confirmar internamente com a equipe técnica/físico a disponibilidade do radiofármaco para a data. Para I-131 terapêutico, reservar quarto de internação.</div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <span>4️⃣ Orientação detalhada do preparo ao paciente</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">Explicar verbalmente o preparo específico do exame. Enviar instruções por escrito (WhatsApp, e-mail, SMS) para que o paciente possa consultar depois. Confirmar que o paciente entendeu. Perguntar sobre medicações em uso, diabetes, gravidez ou amamentação. Alertar sobre restrições específicas (dieta pobre em iodo, suspensão de betabloqueador).</div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <span>5️⃣ Confirmação prévia ao exame</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">Ligar ou enviar mensagem 24-48h antes do exame para confirmar presença e verificar se o preparo está sendo seguido. Confirmar chegada com antecedência de 30 minutos. Relembrar documentos necessários: pedido médico, documento com foto, cartão do plano, exames anteriores de imagem.</div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <span>6️⃣ Recepção no dia do exame</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">Receber o paciente com nome, verificar documentação e dados no sistema. Confirmar preparo realizado (jejum, medicamentos suspensos, dieta). Verificar glicemia se PET/CT com FDG. Alertar a equipe técnica sobre qualquer intercorrência. Encaminhar para sala de captação ou sala de espera de exame.</div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <span>7️⃣ Orientações pós-exame e laudo</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">Informar o prazo para disponibilização do laudo (geralmente 24-72h). Orientar sobre como acessar o resultado no Nav Dasa (app ou site). Fornecer orientações pós-exame: hidratação, evitar contato com crianças/gestantes se radioativo. Para terapia com I-131: orientações de alta e isolamento domiciliar.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASA -->
+<section class="section" id="dasa" style="background:var(--gray-900);">
+  <div class="container">
+    <div class="section-label reveal">A Empresa</div>
+    <h2 class="section-title reveal">Sobre a <span class="serif">DASA</span></h2>
+    <p class="section-desc reveal">Diagnosticos da América S.A. - a maior rede de medicina diagnóstica da América Latina, referência em inovação, tecnologia e humanização no cuidado de saúde.</p>
+
+    <div class="grid-2" style="margin-top:52px;gap:48px;">
+      <div class="reveal">
+        <div class="intro-box">
+          <div class="intro-box-bar"></div>
+          <div class="intro-bignum">DASA</div>
+          <div class="section-label" style="margin-bottom:10px;">Identidade</div>
+          <p style="font-size:0.88rem;color:var(--gray-300);line-height:1.8;margin-bottom:14px;">A DASA é a maior empresa de medicina diagnóstica da América Latina, presente em todo o Brasil com marcas líderes em cada segmento: <strong style="color:var(--white);">Exame</strong> (laboratório), <strong style="color:var(--white);">Alta Diagnósticos</strong> (premium), <strong style="color:var(--white);">Fleury</strong>, <strong style="color:var(--white);">Labs</strong>, entre outros.</p>
+          <p style="font-size:0.88rem;color:var(--gray-300);line-height:1.8;margin-bottom:20px;">A empresa tem como missão ser o maior cuidador de saúde do Brasil, integrando medicina diagnóstica, coordenação de cuidado, vacinas, telemedicina e pesquisa clínica numa plataforma única de saúde.</p>
+          <div class="chip-row">
+            <div class="chip"><span class="chip-dot"></span>+4.500 equipamentos</div>
+            <div class="chip"><span class="chip-dot"></span>18 NTOs (Núcleos Técnicos)</div>
+            <div class="chip"><span class="chip-dot"></span>Harvard Partnership</div>
+            <div class="chip"><span class="chip-dot"></span>Maior parque diagnóstico BR</div>
+            <div class="chip"><span class="chip-dot"></span>Acreditação CAP/PALC</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d2">
+        <div class="section-label">Serviços e especialidades</div>
+        <div class="grid-2" style="gap:14px;margin-top:20px;">
+          <div class="card" style="padding:18px;">
+            <div class="card-icon" style="font-size:1.4rem;">🔬</div>
+            <div class="card-title" style="font-size:0.87rem;">Análises Clínicas</div>
+            <div class="card-desc" style="font-size:0.78rem;">Hemograma, bioquímica, hormônios, microbiologia, biologia molecular. Acreditação PALC e CAP internacional.</div>
+          </div>
+          <div class="card" style="padding:18px;">
+            <div class="card-icon" style="font-size:1.4rem;">🖼️</div>
+            <div class="card-title" style="font-size:0.87rem;">Diagnóstico por Imagem</div>
+            <div class="card-desc" style="font-size:0.78rem;">Raio-X, TC, RM, mamografia, ultrassom, PET/CT, cintilografia. Parceria com Harvard Medical School em IA.</div>
+          </div>
+          <div class="card" style="padding:18px;">
+            <div class="card-icon" style="font-size:1.4rem;">⚛️</div>
+            <div class="card-title" style="font-size:0.87rem;">Medicina Nuclear</div>
+            <div class="card-desc" style="font-size:0.78rem;">PET/CT FDG, PSMA, DOTATATE. Teranóstica com Lu-177. Cintilografias. Terapia com I-131. Referência nacional.</div>
+          </div>
+          <div class="card" style="padding:18px;">
+            <div class="card-icon" style="font-size:1.4rem;">🧬</div>
+            <div class="card-title" style="font-size:0.87rem;">Genômica</div>
+            <div class="card-desc" style="font-size:0.78rem;">Exoma, CGH-array, NIPT, Guardant, Pharmone, PGTA. Medicina de precisão genômica para oncologia, neurologia e reprodução.</div>
+          </div>
+          <div class="card" style="padding:18px;">
+            <div class="card-icon" style="font-size:1.4rem;">💉</div>
+            <div class="card-title" style="font-size:0.87rem;">Vacinas</div>
+            <div class="card-desc" style="font-size:0.78rem;">Calendário completo de vacinas para todas as idades nas unidades DASA. Agendamento pelo Nav Dasa.</div>
+          </div>
+          <div class="card" style="padding:18px;">
+            <div class="card-icon" style="font-size:1.4rem;">🩺</div>
+            <div class="card-title" style="font-size:0.87rem;">Coordenação de Cuidado</div>
+            <div class="card-desc" style="font-size:0.78rem;">Serviço de acompanhamento longitudinal do paciente, integrando resultados e conectando com especialistas.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:60px;">
+      <div class="section-label reveal">Nav Dasa - Plataforma do Paciente</div>
+      <div class="grid-3" style="margin-top:28px;">
+        <div class="card reveal d1">
+          <div class="card-icon">📱</div>
+          <div class="card-title">App Nav Dasa</div>
+          <div class="card-desc">Plataforma digital centralizada onde o paciente agenda exames, consultas e vacinas, visualiza resultados e acompanha histórico de saúde. Disponível para iOS e Android.</div>
+          <span class="card-tag">nav.dasa.com.br</span>
+        </div>
+        <div class="card reveal d2">
+          <div class="card-icon">🔬</div>
+          <div class="card-title">Resultado Online</div>
+          <div class="card-desc">Laudos disponíveis digitalmente com acesso rápido. Paciente e médico acessam simultaneamente. Rastreamento de status do laudo em tempo real.</div>
+          <span class="card-tag">Digital First</span>
+        </div>
+        <div class="card reveal d3">
+          <div class="card-icon">🏠</div>
+          <div class="card-title">Coleta Domiciliar</div>
+          <div class="card-desc">"Exame em Casa" - serviço de coleta domiciliar para exames laboratoriais. Ideal para idosos, pacientes com mobilidade reduzida e situações de urgência.</div>
+          <span class="card-tag">Serviço Premium</span>
+        </div>
+        <div class="card reveal d4">
+          <div class="card-icon">🤖</div>
+          <div class="card-title">IA + Harvard</div>
+          <div class="card-desc">Parceria com Harvard Medical School para desenvolvimento de algoritmos de IA em diagnóstico por imagem. Identificação precoce de alterações em exames radiológicos.</div>
+          <span class="card-tag">Inovação</span>
+        </div>
+        <div class="card reveal d1">
+          <div class="card-icon">🏆</div>
+          <div class="card-title">Acreditações Internacionais</div>
+          <div class="card-desc">PALC (Sociedade Brasileira de Patologia Clínica) e CAP (Colégio Americano de Patologistas). Certificação que atesta qualidade e precisão dos exames laboratoriais.</div>
+          <span class="card-tag">Qualidade certificada</span>
+        </div>
+        <div class="card reveal d2">
+          <div class="card-icon">🌐</div>
+          <div class="card-title">Mega Unidades</div>
+          <div class="card-desc">Unidades completas que realizam desde coleta laboratorial até PET/CT e ressonância magnética no mesmo local. Menor deslocamento, maior conveniência para o paciente.</div>
+          <span class="card-tag">One-stop health</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOSSÁRIO TÉCNICO -->
+<section class="section" id="glossario" style="background:var(--black);">
+  <div class="container">
+    <div class="section-label reveal">Vocabulário</div>
+    <h2 class="section-title reveal">Glossário <span class="serif">técnico completo</span></h2>
+    <p class="section-desc reveal">Domine os termos que você vai ouvir todos os dias. Glossário essencial para o BKO de medicina nuclear.</p>
+
+    <div class="glossary-grid reveal" style="margin-top:44px;">
+      <div class="glossary-item"><div class="g-term">ALARA</div><div class="g-def">As Low As Reasonably Achievable - princípio de minimizar exposição à radiação ao menor nível possível, sem comprometer qualidade diagnóstica.</div></div>
+      <div class="glossary-item"><div class="g-term">Cintilografia</div><div class="g-def">Exame de imagem que detecta radiação emitida por radiofarmacos no organismo, gerando imagens funcionais (como o órgão trabalha).</div></div>
+      <div class="glossary-item"><div class="g-term">Radiofármaco</div><div class="g-def">Substância composta por radionuclídeo + vetor biológico. O radionuclídeo emite radiação detectável; o vetor dirige a substância ao órgão-alvo.</div></div>
+      <div class="glossary-item"><div class="g-term">Meia-vida</div><div class="g-def">Tempo para metade dos átomos radioativos de um isótopo se desintegrar. Tc-99m: 6h | F-18: 110 min | Ga-68: 68 min | I-131: 8 dias.</div></div>
+      <div class="glossary-item"><div class="g-term">PET/CT</div><div class="g-def">Positron Emission Tomography / Computed Tomography - equipamento que combina imagem de medicina nuclear (PET) com tomografia anatômica (CT) em um único exame.</div></div>
+      <div class="glossary-item"><div class="g-term">SPECT</div><div class="g-def">Single Photon Emission Computed Tomography - câmara de cintilação que gera imagens tridimensionais, mais detalhadas que a cintilografia convencional plana.</div></div>
+      <div class="glossary-item"><div class="g-term">Tc-99m</div><div class="g-def">Tecnécio-99m - o radioisótopo mais utilizado em medicina nuclear. Meia-vida de 6h, emite raios gama, extremamente versátil para ossos, coração, rins e pulmões.</div></div>
+      <div class="glossary-item"><div class="g-term">FDG</div><div class="g-def">Fluorodesoxiglicose - análogo da glicose marcado com F-18. Principal radiofármaco do PET/CT oncológico. Tumores consomem mais glicose = maior captação = lesão visível.</div></div>
+      <div class="glossary-item"><div class="g-term">PSMA</div><div class="g-def">Antígeno de Membrana Específico da Próstata - proteína superexpressa em células do câncer de próstata. Alvo do PET/CT Ga-68-PSMA (diagnóstico) e Lu-177-PSMA (terapia).</div></div>
+      <div class="glossary-item"><div class="g-term">Teranóstica</div><div class="g-def">União de diagnóstico e terapia usando o mesmo alvo molecular. Ex.: diagnóstico com Ga-68-PSMA + terapia com Lu-177-PSMA. Medicina personalizada de precisão.</div></div>
+      <div class="glossary-item"><div class="g-term">Lu-177</div><div class="g-def">Lutécio-177 - radioisótopo terapêutico emissor beta usado em PSMA (próstata) e DOTATATE (tumores neuroendócrinos). Destrói células tumorais com precisão molecular.</div></div>
+      <div class="glossary-item"><div class="g-term">I-131</div><div class="g-def">Iodo-131  isótopo terapêutico com meia-vida de 8 dias. Tratamento definitivo do hipertireoidismo e ablação de câncer diferenciado de tireoide residual pós-cirurgia.</div></div>
+      <div class="glossary-item"><div class="g-term">CNEN</div><div class="g-def">Comissão Nacional de Energia Nuclear - órgão regulador brasileiro que licencia e fiscaliza todos os serviços de medicina nuclear e uso de materiais radioativos no país.</div></div>
+      <div class="glossary-item"><div class="g-term">Captação</div><div class="g-def">Período pós-injeção em que o paciente aguarda em repouso para o radiofármaco se distribuir e concentrar no órgão-alvo. PET/CT FDG: 60 minutos de captação.</div></div>
+      <div class="glossary-item"><div class="g-term">Radionuclídeo</div><div class="g-def">Isótopo radioativo instável que emite radiação ao se desintegrar. Em medicina nuclear, essa radiação é detectada externamente para formar imagens ou destruir células-alvo.</div></div>
+      <div class="glossary-item"><div class="g-term">DOTATATE</div><div class="g-def">Análogo da somatostatina usado em tumores neuroendócrinos. Ga-68-DOTATATE para diagnóstico (PET/CT); Lu-177-DOTATATE (Lutathera®) para terapia.</div></div>
+      <div class="glossary-item"><div class="g-term">CPRC / mCRPC</div><div class="g-def">Câncer de Próstata Resistente à Castração / metastático. Estágio avançado onde hormônioterapia não é mais eficaz. Principal indicação do Lu-177-PSMA.</div></div>
+      <div class="glossary-item"><div class="g-term">mSv</div><div class="g-def">Milissievert - unidade de medida de dose equivalente de radiação ionizante. Usada para comparar a exposição de diferentes exames. Dose de fundo natural: ~2-3 mSv/ano.</div></div>
+      <div class="glossary-item"><div class="g-term">Estadiamento</div><div class="g-def">Determinação da extensão de uma doença (especialmente câncer) no organismo. O PET/CT é fundamental para estadiamento preciso, definindo a estratégia de tratamento.</div></div>
+      <div class="glossary-item"><div class="g-term">Ablação</div><div class="g-def">Destruição de tecido por radioatividade. Ablação com I-131: destrói tecido tireoidiano residual após tireoidectomia, eliminando possível doença residual microscópica.</div></div>
+      <div class="glossary-item"><div class="g-term">BKO</div><div class="g-def">Back Office - função de suporte operacional que gerencia agendamentos, orientações, fluxo de pacientes e comunicação entre front office e equipe clínica/técnica.</div></div>
+      <div class="glossary-item"><div class="g-term">NTO</div><div class="g-def">Núcleo Técnico Operacional - centros de processamento laboratorial da DASA espalhados pelo Brasil (18 unidades) que processam exames das unidades de coleta regionais.</div></div>
+      <div class="glossary-item"><div class="g-term">ANVISA</div><div class="g-def">Agência Nacional de Vigilância Sanitária - regulamenta a aprovação e uso de radiofarmacos no Brasil. Aprovou o Lu-177-PSMA para uso terapêutico na oncologia de próstata.</div></div>
+      <div class="glossary-item"><div class="g-term">Ra-223</div><div class="g-def">Rádio-223 (Xofigo®) - emissor alfa aprovado para metástases ósseas de câncer de próstata resistente à castração. Alcance de apenas 40-80 μm: máximo no tumor, mínimo no osso adjacente.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section class="section" id="quiz" style="background:var(--gray-900);">
+  <div class="container">
+    <div class="section-label reveal" style="justify-content:center;">Teste seu Conhecimento</div>
+    <h2 class="section-title reveal" style="text-align:center;">Quiz <span class="serif">interativo</span></h2>
+    <p class="section-desc reveal" style="text-align:center;margin:0 auto 44px;">15 perguntas para fixar tudo que você aprendeu. Essencial para a prova!</p>
+
+    <div class="quiz-box reveal">
+      <div id="quiz-container">
+        <!-- Perguntas injetadas via JS -->
+      </div>
+      <div style="text-align:center;margin-top:24px;">
+        <button class="btn-red" id="quiz-next" onclick="nextQuestion()" style="display:none;">Próxima ➜</button>
+        <button class="btn-red" id="quiz-restart" onclick="restartQuiz()" style="display:none;">🔄 Recomeçar</button>
+      </div>
+      <div class="quiz-score" id="quiz-score">
+        <div class="score-big" id="score-num"></div>
+        <div style="font-size:1.1rem;font-weight:700;margin-top:10px;" id="score-msg"></div>
+        <div style="font-size:0.82rem;color:var(--gray-400);margin-top:8px;" id="score-sub"></div>
+        <button class="btn-red" onclick="restartQuiz()" style="margin-top:24px;">🔄 Fazer Novamente</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Medicina<span>Nuclear</span></h3>
+        <p>Guia semi-completo de medicina nuclear. Material de estudo desenvolvido para prova e aula reversa.</p>
+        <div style="margin-top:16px;display:flex;gap:10px;">
+          <div style="background:rgba(212,30,42,0.1);border:1px solid rgba(212,30,42,0.2);border-radius:6px;padding:6px 12px;font-size:0.7rem;color:var(--red);">☢ DASA BKO</div>
+          <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:6px 12px;font-size:0.7rem;color:var(--gray-400);">2026</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Conteúdo</h4>
+        <ul>
+          <li><a href="#o-que-e">O Que É</a></li>
+          <li><a href="#como-funciona">Como Funciona</a></li>
+          <li><a href="#exames">Exames</a></li>
+          <li><a href="#tipos">Cintilografias</a></li>
+          <li><a href="#radiofarmacos">Radiofarmacos</a></li>
+          <li><a href="#doencas">Doenças</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Protocolos</h4>
+        <ul>
+          <li><a href="#preparo">Preparo de Exames</a></li>
+          <li><a href="#seguranca">Segurança e Radiação</a></li>
+          <li><a href="#teranostica">Teranóstica</a></li>
+          <li><a href="#humanizacao">Humanização</a></li>
+          <li><a href="#bko">Papel do BKO</a></li>
+          <li><a href="#glossario">Glossário</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="https://dasa.com.br" target="_blank">dasa.com.br</a></li>
+          <li><a href="https://nav.dasa.com.br" target="_blank">nav.dasa.com.br</a></li>
+          <li><a href="https://cnen.gov.br" target="_blank">CNEN</a></li>
+          <li><a href="https://sbmn.org.br" target="_blank">SBMN</a></li>
+          <li><a href="#quiz">Quiz de Revisão</a></li>
+          <li><a href="#glossario">Glossário Técnico</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 - Conteúdo de estudo.</div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <span style="font-size:0.7rem;color:var(--gray-500);">Boa prova! ☢</span>
+        <div style="width:6px;height:6px;background:var(--red);border-radius:50%;animation:blink 1.5s infinite;"></div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// QUIZ DATA
+const questions = [
+  {
+    q: "O que significa o princípio ALARA em medicina nuclear?",
+    opts: ["Automatização de Laudos e Rastreamento de Átomos", "As Low As Reasonably Achievable - menor dose possível com qualidade diagnóstica", "Administração de Licença de Alta Radiação Ativa", "Análise Laboratorial de Radiofarmacos Avançados"],
+    correct: 1,
+    exp: "ALARA (As Low As Reasonably Achievable) é o princípio fundamental de radioproteção: usar a menor dose de radiação possível que ainda permita um exame de qualidade diagnóstica adequada."
+  },
+  {
+    q: "Qual é a meia-vida do Tecnécio-99m (Tc-99m)?",
+    opts: ["110 minutos", "8 dias", "6 horas", "73 horas"],
+    correct: 2,
+    exp: "O Tc-99m tem meia-vida de 6 horas, tornando-o ideal para diagnóstico: tempo suficiente para o exame, rápida eliminação após. É o radiofármaco mais utilizado em medicina nuclear."
+  },
+  {
+    q: "O PET/CT com FDG avalia principalmente qual aspecto dos tumores?",
+    opts: ["Estrutura anatômica - como o tumor parece", "Metabolismo da glicose - como o tumor funciona", "Vascularização do tumor", "Apenas o tamanho do nódulo"],
+    correct: 1,
+    exp: "O FDG (fluorodesoxiglicose) é análogo da glicose. Tumores têm alto consumo de glicose (efeito Warburg). O PET/CT detecta essa hiperatividade metabólica ANTES de alterações estruturais visíveis na TC convencional."
+  },
+  {
+    q: "Qual é o jejum correto exigido para o PET/CT com FDG?",
+    opts: ["2 horas apenas de sólidos", "12 horas de tudo, incluindo água", "6 horas de sólidos e bebidas calóricas - água sem açúcar liberada", "Não requer jejum algum"],
+    correct: 2,
+    exp: "Jejum de 6 horas de sólidos e líquidos calóricos. Água sem açúcar é permitida e recomendada. A glicemia deve estar abaixo de 140-200 mg/dL. Glicemia alta compete com o FDG e prejudica o exame."
+  },
+  {
+    q: "Para um BKO, qual pergunta é ESSENCIAL ao agendar cintilografia com Iodo-131?",
+    opts: ["Qual o plano de saúde do paciente", "Se a paciente está gestante ou pode estar grávida", "Se o paciente toma vitaminas", "Qual a cor dos olhos do paciente"],
+    correct: 1,
+    exp: "Gestação é contraindicação absoluta para I-131. A dose de iodo radioativo pode causar dano grave à tireoide fetal. Esta é uma checagem de segurança crítica e obrigatória para todas as mulheres em idade fértil."
+  },
+  {
+    q: "O que é Teranóstica em medicina nuclear?",
+    opts: ["Um tipo de tomografia avançada", "União de diagnóstico e terapia usando o mesmo alvo molecular", "Nome do equipamento PET/CT mais moderno", "Técnica de preparo de radiofarmacos"],
+    correct: 1,
+    exp: "Teranóstica = Terapia + Diagnóstico. O mesmo alvo molecular é usado para imagem diagnóstica e terapia. Exemplo clássico: Ga-68-PSMA para diagnóstico + Lu-177-PSMA para tratamento do câncer de próstata."
+  },
+  {
+    q: "Qual radiofármaco é usado especificamente para diagnóstico e tratamento do CÂNCER DE PRÓSTATA metastático?",
+    opts: ["FDG F-18 / Ra-223", "DOTATATE Ga-68 / Lu-177-DOTATATE", "PSMA Ga-68 / Lu-177-PSMA", "Tc-99m MDP / I-131"],
+    correct: 2,
+    exp: "O eixo teranóstico da próstata usa Ga-68-PSMA (diagnóstico PET/CT) e Lu-177-PSMA (terapia). O PSMA é uma proteína superexpressa no câncer de próstata, sendo o alvo molecular perfeito para este eixo."
+  },
+  {
+    q: "O que avalia a Cintilografia Miocárdica de Perfusão?",
+    opts: ["Estrutura das câmaras cardíacas por imagem anatômica", "Irrigação sanguínea do coração em repouso e esforço", "Apenas a fração de ejeção cardíaca", "Nível de colesterol no sangue"],
+    correct: 1,
+    exp: "A cintilografia miocárdica avalia o FLUXO SANGUÍNEO do coração, identificando isquemia (fluxo reduzido) e infarto (ausência de fluxo). Realizada em repouso e esforço (esteira ou farmacológico)."
+  },
+  {
+    q: "Em medicina nuclear, o que diferencia DIAGNÓSTICO e TERAPIA?",
+    opts: ["No diagnóstico usa-se radiofarmacos; na terapia não há radiação", "No diagnóstico, radiofarmacos emitem raios detectáveis para imagem; na terapia, emitem partículas que destroem células-alvo", "Diagnóstico é feito por médicos; terapia por técnicos", "Não há diferença, são sinônimos"],
+    correct: 1,
+    exp: "Diagnóstico: radiofarmacos emitem raios gama (SPECT) ou pósitrons (PET) detectados por câmeras para formar imagens. Terapia: radiofarmacos emitem partículas alfa ou beta que destroem seletivamente células-alvo (tumor)."
+  },
+  {
+    q: "Qual órgão regulamenta e licencia os serviços de medicina nuclear no Brasil?",
+    opts: ["ANVISA apenas", "Ministério da Saúde diretamente", "CNEN - Comissão Nacional de Energia Nuclear", "Conselho Federal de Medicina"],
+    correct: 2,
+    exp: "A CNEN (Comissão Nacional de Energia Nuclear) é o órgão que licencia e fiscaliza todos os serviços de medicina nuclear no Brasil, aprovando espaço físico, equipamentos, equipes e protocolos de radioproteção."
+  },
+  {
+    q: "Para a Cintilografia de Tireoide com Iodo, qual dieta especial é necessária?",
+    opts: ["Dieta rica em proteínas por 2 semanas", "Dieta pobre em iodo por 2-4 semanas (evitar frutos do mar, sal iodado, laticínios)", "Jejum de 24 horas antes do exame", "Dieta vegetariana por 1 semana"],
+    correct: 1,
+    exp: "A dieta pobre em iodo por 2-4 semanas antes é essencial. A carência de iodo no organismo aumenta a 'fome' da tireoide pelo iodo, maximizando a captação do iodo radioativo administrado - melhor qualidade do exame e do tratamento."
+  },
+  {
+    q: "Qual é a função do BKO (Back Office) receptivo na medicina nuclear?",
+    opts: ["Realizar os exames de imagem diretamente", "Interpretar laudos e diagnosticar doenças", "Gerenciar agendamentos, orientar preparo, controlar fluxo e ser interface entre paciente e equipe técnica", "Aplicar radiofarmacos nos pacientes"],
+    correct: 2,
+    exp: "O BKO é o ponto estratégico de contato: recebe solicitações, verifica convênios, agenda exames considerando meia-vida dos radiofarmacos, orienta preparo, confirma presença e coordena o fluxo do serviço."
+  },
+  {
+    q: "O que é o Nav Dasa?",
+    opts: ["Equipamento de PET/CT da DASA", "Plataforma digital para agendamento de exames, consultas, vacinas e acesso a resultados", "Sistema de laudos médicos interno da DASA", "Nome do hospital principal da DASA"],
+    correct: 1,
+    exp: "Nav Dasa é a plataforma digital central da DASA (app e web) onde pacientes agendam exames, consultas e vacinas, acessam resultados e histórico de saúde. É o sistema que o BKO usa e orienta os pacientes a utilizar."
+  },
+  {
+    q: "Qual das alternativas descreve CORRETAMENTE a diferença entre Medicina Nuclear e Radiologia convencional?",
+    opts: ["Medicina nuclear usa raio-X; radiologia usa radiofarmacos", "Medicina nuclear avalia FISIOLOGIA (funcionamento); radiologia avalia ANATOMIA (estrutura)", "São idênticas, apenas com nomes diferentes", "Medicina nuclear é mais antiga que a radiologia"],
+    correct: 1,
+    exp: "Esta é a diferença fundamental: Radiologia convencional (TC, RM, raio-X) mostra a ESTRUTURA anatômica. Medicina nuclear mostra o FUNCIONAMENTO fisiológico. Um tumor pode ser metabolicamente ativo no PET antes de ter alteração estrutural visível."
+  },
+  {
+    q: "Após receber I-131 terapêutico, o paciente deve:",
+    opts: ["Retornar imediatamente ao trabalho e vida normal", "Ficar isolado (internado ou em isolamento domiciliar) e evitar contato próximo com crianças e gestantes por período determinado", "Tomar sol por 30 minutos por dia", "Fazer atividade física intensa para acelerar eliminação"],
+    correct: 1,
+    exp: "Após I-131 terapêutico, o paciente é radioativo. Internação ou isolamento domiciliar é obrigatório. Evitar crianças e gestantes (mais sensíveis), dormir separado, não compartilhar utensílios. O período varia conforme a dose e protocolo médico."
+  }
+];
+
+let currentQ = 0;
+let score = 0;
+let answered = false;
+
+function renderQuestion() {
+  const q = questions[currentQ];
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = `
+    <div class="quiz-question">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+        <span style="font-size:0.7rem;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.1em;">Pergunta ${currentQ+1} de ${questions.length}</span>
+        <span style="font-size:0.7rem;color:var(--red);font-weight:700;">${score} acertos</span>
+      </div>
+      <div style="background:var(--gray-700);border-radius:4px;height:4px;margin-bottom:18px;overflow:hidden;">
+        <div style="height:100%;background:var(--red);border-radius:4px;width:${((currentQ)/questions.length)*100}%;transition:width 0.4s;"></div>
+      </div>
+      <div class="quiz-q">${q.q}</div>
+      <div class="quiz-opts">
+        ${q.opts.map((opt, i) => `<button class="quiz-opt" onclick="answer(${i})" id="opt-${i}">${String.fromCharCode(65+i)}) ${opt}</button>`).join('')}
+      </div>
+      <div class="quiz-fb" id="quiz-fb"></div>
+    </div>`;
+  document.getElementById('quiz-next').style.display = 'none';
+  answered = false;
+}
+
+function answer(idx) {
+  if (answered) return;
+  answered = true;
+  const q = questions[currentQ];
+  const fb = document.getElementById('quiz-fb');
+  const opts = document.querySelectorAll('.quiz-opt');
+  opts.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === q.correct) btn.classList.add('correct');
+    else if (i === idx) btn.classList.add('wrong');
+  });
+  if (idx === q.correct) {
+    score++;
+    fb.className = 'quiz-fb show correct';
+    fb.innerHTML = '✓ Correto! ' + q.exp;
+  } else {
+    fb.className = 'quiz-fb show wrong';
+    fb.innerHTML = '✗ Incorreto. ' + q.exp;
+  }
+  const nextBtn = document.getElementById('quiz-next');
+  if (currentQ < questions.length - 1) {
+    nextBtn.style.display = 'inline-flex';
+    nextBtn.textContent = 'Próxima ➜';
+  } else {
+    nextBtn.style.display = 'inline-flex';
+    nextBtn.textContent = 'Ver resultado ✦';
+  }
+}
+
+function nextQuestion() {
+  currentQ++;
+  if (currentQ >= questions.length) {
+    showScore();
+  } else {
+    renderQuestion();
+  }
+}
+
+function showScore() {
+  document.getElementById('quiz-container').innerHTML = '';
+  document.getElementById('quiz-next').style.display = 'none';
+  const pct = Math.round((score / questions.length) * 100);
+  const scoreEl = document.getElementById('quiz-score');
+  scoreEl.style.display = 'block';
+  document.getElementById('score-num').textContent = score + '/' + questions.length;
+  let msg, sub;
+  if (pct >= 90) { msg = '🏆 Excelente! Você está pronto(a) para a prova!'; sub = 'Domínio completo do conteúdo de medicina nuclear - ' + pct + '% de acertos.'; }
+  else if (pct >= 70) { msg = '👍 Muito bom! Revise os pontos errados.'; sub = 'Bom domínio com alguns pontos a reforçar - ' + pct + '% de acertos.'; }
+  else if (pct >= 50) { msg = '📚 Regular. Mais estudo necessário.'; sub = 'Revise especialmente: preparo de exames, radiofarmacos e BKO - ' + pct + '% de acertos.'; }
+  else { msg = '🔄 Vamos recomeçar! A revisão vai ajudar muito.'; sub = 'Releia todas as seções e tente novamente - ' + pct + '% de acertos.'; }
+  document.getElementById('score-msg').textContent = msg;
+  document.getElementById('score-sub').textContent = sub;
+}
+
+function restartQuiz() {
+  currentQ = 0;
+  score = 0;
+  document.getElementById('quiz-score').style.display = 'none';
+  document.getElementById('quiz-restart').style.display = 'none';
+  renderQuestion();
+}
+
+// TAB SYSTEM
+function showTab(group, id, btn) {
+  document.querySelectorAll(`[id^="${group}-"]`).forEach(p => p.classList.remove('active'));
+  document.getElementById(`${group}-${id}`).classList.add('active');
+  btn.closest('.tabs').querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ACCORDION
+function toggleAcc(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  btn.closest('.accordion').querySelectorAll('.acc-body').forEach(b => { b.classList.remove('open'); b.previousElementSibling.classList.remove('open'); });
+  if (!isOpen) { body.classList.add('open'); btn.classList.add('open'); }
+}
+
+// MOBILE MENU
+function toggleMenu() {
+  const m = document.getElementById('mobMenu');
+  m.classList.toggle('open');
+}
+
+// SCROLL REVEAL
+const revealEls = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.08 });
+revealEls.forEach(el => obs.observe(el));
+
+// PROGRESS BAR
+window.addEventListener('scroll', () => {
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  const prog = (window.scrollY / docH) * 100;
+  document.getElementById('progBar').style.width = prog + '%';
+  const bt = document.getElementById('backTop');
+  window.scrollY > 400 ? bt.classList.add('show') : bt.classList.remove('show');
+});
+
+// ACTIVE NAV
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
+  navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#'+current ? 'var(--white)' : ''; });
+});
+
+// INIT QUIZ
+renderQuestion();
+</script>
+</body>
+</html>
