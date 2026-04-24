@@ -260,6 +260,7 @@ footer{background:var(--gray-900);border-top:1px solid rgba(255,255,255,0.06);pa
       <li><a href="#humanizacao">Humanização</a></li>
       <li><a href="#bko">BKO</a></li>
       <li><a href="#dasa">DASA</a></li>
+      <li><a href="#vacinas-vendas">Vacinas BKO</a></li>
       <li><a href="#quiz" class="nav-badge">Quiz ✦</a></li>
     </ul>
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
@@ -281,6 +282,7 @@ footer{background:var(--gray-900);border-top:1px solid rgba(255,255,255,0.06);pa
   <a href="#teranostica" onclick="toggleMenu()">Teranóstica</a>
   <a href="#dasa" onclick="toggleMenu()">Sobre a DASA</a>
   <a href="#glossario" onclick="toggleMenu()">Glossário Técnico</a>
+  <a href="#vacinas-vendas" onclick="toggleMenu()">Técnica de Venda de Vacinas</a>
   <a href="#quiz" onclick="toggleMenu()">Quiz ✦</a>
 </div>
 <!-- HERO -->
@@ -465,6 +467,9 @@ footer{background:var(--gray-900);border-top:1px solid rgba(255,255,255,0.06);pa
       <button class="tab" onclick="showTab('exam','spect',this)">SPECT / SPECT-CT</button>
       <button class="tab" onclick="showTab('exam','angiotc',this)">Angiotomografia</button>
       <button class="tab" onclick="showTab('exam','artro',this)">Artrocintilografia</button>
+      <button class="tab" onclick="showTab('exam','artromografia',this)">Artromografia (Artro-TC/RM)</button>
+      <button class="tab" onclick="showTab('exam','rm',this)">Ressonância Magnética</button>
+      <button class="tab" onclick="showTab('exam','angiorm',this)">Angio RM</button>
 
     </div>
     <div class="tab-panel active" id="exam-cintilo">
@@ -838,7 +843,246 @@ footer{background:var(--gray-900);border-top:1px solid rgba(255,255,255,0.06);pa
         </div>
       </div>
     </div>
+<!-- ARTROMOGRAFIA -->
+    <div class="tab-panel" id="exam-artromografia">
+      <div class="exam-card reveal">
+        <div class="exam-head">
+          <div class="exam-title">Artromografia (Artro-TC / Artro-RM)</div>
+          <div class="exam-sub">Artrografia por Tomografia Computadorizada ou Ressonância Magnética. Consiste na administração de contraste diretamente dentro da articulação, seguida da aquisição de imagens. Permite avaliação precisa de estruturas internas — cartilagem, tendões, ligamentos e cápsula articular — com resolução superior à RM ou TC convencional.</div>
+          <div class="exam-badge">Contraste Intra-articular · Artro-TC somente Delboni</div>
+        </div>
+        <div class="exam-body">
+          <div class="stat-row">
+            <div class="stat-box"><div class="stat-num">30–60</div><div class="stat-label">min duração total</div></div>
+            <div class="stat-box"><div class="stat-num">Delboni</div><div class="stat-label">Artro-TC exclusivo SP</div></div>
+            <div class="stat-box"><div class="stat-num">Invasivo</div><div class="stat-label">Injeção intra-articular</div></div>
+          </div>
+          <div class="info-grid">
+            <div class="info-block">
+              <h4>🎯 O que é e para que serve</h4>
+              <ul>
+                <li><strong>Artro-TC:</strong> contraste iodado injetado na articulação + tomografia computadorizada (usa radiação ionizante)</li>
+                <li><strong>Artro-RM:</strong> contraste gadolíneo injetado na articulação + ressonância magnética (sem radiação)</li>
+                <li>Avalia cartilagem, meniscos, ligamentos, tendões e cápsula articular com altíssima resolução</li>
+                <li>Detecta rupturas parciais invisíveis na RM convencional</li>
+                <li>Articulações mais comuns: ombro, quadril, joelho, tornozelo e punho</li>
+                <li>Indicado quando RM simples não foi conclusiva ou há dúvida diagnóstica específica</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>🏥 Disponibilidade e regras BKO</h4>
+              <ul>
+                <li><strong>Artro-TC:</strong> realizado somente no <strong style="color:var(--red);">Delboni</strong> (SP)</li>
+                <li><strong>Artro-RM:</strong> verificar disponibilidade no CDC por unidade</li>
+                <li>Pedido médico deve especificar: "Artrografia + TC" ou "Artrografia + RM" e qual articulação</li>
+                <li>Pedido genérico de "RM de ombro" NÃO autoriza este procedimento</li>
+                <li>Procedimento invasivo: maioria dos convênios exige autorização prévia</li>
+                <li>Feito em dois tempos: 1º injeção intra-articular pelo radiologista → 2º aquisição das imagens</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>📋 Preparo do paciente</h4>
+              <ul>
+                <li>Jejum de 2 a 4 horas (verificar protocolo da unidade)</li>
+                <li>Informar uso de anticoagulantes (Warfarina, Xarelto, Pradaxa): possível suspensão</li>
+                <li>Informar infecções ativas na articulação ou na pele próxima: contraindicação relativa</li>
+                <li>Remover adornos metálicos da região (para Artro-RM)</li>
+                <li>Trazer exames de imagem anteriores da articulação para correlação</li>
+                <li>Acompanhante adulto recomendado (procedimento invasivo)</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>⚠️ Contraindicações e alertas BKO</h4>
+              <ul>
+                <li>Infecção ativa na articulação ou pele sobrejacente: contraindicação absoluta</li>
+                <li>Alergia ao contraste iodado (Artro-TC): protocolo de premedicação ou substituir por Artro-RM</li>
+                <li>Alergia ao gadolíneo (Artro-RM): avisar unidade para protocolo antialérgico 48h antes</li>
+                <li>Gestação: avaliação médica obrigatória antes do agendamento</li>
+                <li>Coagulopatias graves: discussão com médico antes do procedimento</li>
+                <li>Próteses articulares metálicas: Artro-TC preferível (sem artefatos de campo magnético)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="alert" style="margin-top:24px;">
+            <h4>⚠️ Alerta BKO — Procedimento Invasivo, confirme o PM</h4>
+            <p>A artromografia envolve uma injeção com agulha dentro da articulação, realizada pelo radiologista antes das imagens. Sempre informe o paciente que é um procedimento diferente de uma RM ou TC convencional — há uma injeção local. Confirme que o pedido médico descreve claramente <strong>"Artrografia"</strong> ou <strong>"Artromografia"</strong> e qual articulação. Se o PM estiver genérico, oriente o paciente a confirmar com o médico antes de agendar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- RESSONÂNCIA MAGNÉTICA -->
+    <div class="tab-panel" id="exam-rm">
+      <div class="exam-card reveal">
+        <div class="exam-head">
+          <div class="exam-title">Ressonância Magnética (RM)</div>
+          <div class="exam-sub">Exame de alta complexidade que utiliza campo magnético potente e radiofrequência para gerar imagens detalhadas das estruturas internas do corpo. Não utiliza radiação ionizante. Disponível somente em campo fechado nas unidades DASA — com aparelhos de até 3 Tesla para maior resolução e conforto.</div>
+          <div class="exam-badge">Sem Radiação · Campo Fechado · 3 Tesla disponível</div>
+        </div>
+        <div class="exam-body">
+          <div class="stat-row">
+            <div class="stat-box"><div class="stat-num">Máx 4</div><div class="stat-label">RM no mesmo dia</div></div>
+            <div class="stat-box"><div class="stat-num">3T</div><div class="stat-label">Tesla nas principais unidades</div></div>
+            <div class="stat-box"><div class="stat-num">48h</div><div class="stat-label">Antes: retirar receita se alergia ao Gadolíneo</div></div>
+          </div>
+          <div class="info-grid">
+            <div class="info-block">
+              <h4>🏥 Onde realizamos</h4>
+              <ul>
+                <li><strong>São Paulo:</strong></li>
+                <li>Delboni — unidade Jardim Sul</li>
+                <li>Alta Excelência — unidades Parque Ibirapuera e Higienopolis</li>
+                <li><strong>Rio de Janeiro:</strong></li>
+                <li>CDPI RJ — Barra Shopping e Ipanema</li>
+                <li><strong>RM de corpo inteiro:</strong> somente CDPI RJ (abrir retorno)</li>
+                <li>⚠️ <strong>Somente campo fechado</strong> — não temos máquina de campo aberto</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>📋 Regras de agendamento BKO</h4>
+              <ul>
+                <li>Máximo de <strong>4 RM por dia</strong> por paciente</li>
+                <li>TC e RM podem ser no mesmo dia: agendar <strong>primeiro a TC, depois a RM</strong></li>
+                <li>"Coluna total": médico deve especificar todos os segmentos (cervical, torácica, lombar, sacral, cóccix)</li>
+                <li><strong>RM de NeuroEixo =</strong> Crânio + Cervical + Torácica + Lombo-Sacra + Cóccix — cinco exames juntos</li>
+                <li>Verificar perguntas de segurança específicas da marca no CDC antes de agendar</li>
+                <li>Alergia ao Gadolíneo (SP): agendar normalmente; orientar paciente a retirar receita antialérgica na unidade <strong>48h antes</strong></li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>🚨 Perguntas de segurança obrigatórias</h4>
+              <ul>
+                <li>Possui marca-passo ou desfibrilador cardíaco implantável?</li>
+                <li>Possui clipes metálicos para aneurisma cerebral?</li>
+                <li>Possui prótese auditiva fixa auricular (BAHA / implante coclear)?</li>
+                <li>Possui stent cardíaco ou vascular?</li>
+                <li>Possui válvulas metálicas cardíacas?</li>
+                <li>Trabalha ou trabalhou com corte de metais (risco de fragmento metálico nos olhos)?</li>
+                <li>Consultar demais perguntas de segurança no CDC para a marca desejada</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>⚠️ Preparo e cuidados gerais</h4>
+              <ul>
+                <li>Remover joias, adornos, piercings e maquiagem antes do exame</li>
+                <li>Claustrofobia: avisar antecipadamente — sedação/anestesia disponível</li>
+                <li>Gestante: avaliação médica obrigatória antes do agendamento</li>
+                <li>Tatuagens recentes: alertar sobre possível aquecimento local (raro)</li>
+                <li>Não há jejum para RM sem contraste na maioria dos protocolos (verificar CDC)</li>
+                <li>Com contraste Gadolíneo: jejum variável conforme protocolo da unidade</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="compare-wrap" style="margin-top:28px;">
+            <div class="compare-head"><h3 style="font-size:0.95rem;font-weight:700;">💉 Sedação e Anestesia — RM</h3></div>
+            <div class="compare-row header">
+              <div class="c-cell">Regra</div>
+              <div class="c-cell">São Paulo</div>
+              <div class="c-cell">Rio de Janeiro</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Onde realiza com anestesia</div>
+              <div class="c-cell">Delboni e Alta SP</div>
+              <div class="c-cell">CDPI RJ e Multi Imagem</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Como agendar</div>
+              <div class="c-cell" style="color:var(--red);font-weight:600;">Agendado pela Central</div>
+              <div class="c-cell">Abrir Retorno Medicina Nuclear</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Obrigação no pedido médico</div>
+              <div class="c-cell">"com sedação e/ou anestesia" deve constar</div>
+              <div class="c-cell">"com sedação e/ou anestesia" deve constar</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Exames pré-anestésicos (+50 anos)</div>
+              <div class="c-cell">ECG c/ laudo + Raio-X de tórax + Hemograma (máx. 6 meses)</div>
+              <div class="c-cell">ECG c/ laudo + Raio-X de tórax + Hemograma (máx. 6 meses)</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Valor da anestesia</div>
+              <div class="c-cell">Por quantidade de exames — sem desconto</div>
+              <div class="c-cell">Por quantidade de exames — sem desconto</div>
+            </div>
+          </div>
+
+          <div class="alert" style="margin-top:24px;">
+            <h4>⚠️ Alerta BKO — Coluna Total e NeuroEixo</h4>
+            <p>Quando solicitado <strong>"RM de coluna total"</strong>, o médico obrigatoriamente deve especificar quais segmentos serão avaliados. Nunca agende como coluna total sem essa informação — acione o paciente para confirmar com o médico solicitante. O <strong>NeuroEixo</strong> corresponde a cinco exames separados agendados em conjunto: RM Crânio + Cervical + Torácica + Lombo-Sacra + Cóccix.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANGIO RM -->
+    <div class="tab-panel" id="exam-angiorm">
+      <div class="exam-card reveal">
+        <div class="exam-head">
+          <div class="exam-title">Angio RM (Angioressonância)</div>
+          <div class="exam-sub">Angiografia por Ressonância Magnética — método não invasivo que permite visualizar artérias e veias do corpo com alta resolução e sem radiação ionizante. Utiliza o mesmo princípio da RM convencional, com ou sem contraste gadolíneo, gerando imagens tridimensionais detalhadas dos vasos sanguíneos.</div>
+          <div class="exam-badge">Sem Radiação · Visualização Vascular · Não Invasivo</div>
+        </div>
+        <div class="exam-body">
+          <div class="stat-row">
+            <div class="stat-box"><div class="stat-num">3D</div><div class="stat-label">Reconstrução vascular</div></div>
+            <div class="stat-box"><div class="stat-num">Gadolíneo</div><div class="stat-label">Contraste (≠ iodado da TC)</div></div>
+            <div class="stat-box"><div class="stat-num">Máx 4</div><div class="stat-label">RM incluindo Angio RM/dia</div></div>
+          </div>
+          <div class="info-grid">
+            <div class="info-block">
+              <h4>🎯 Indicações principais</h4>
+              <ul>
+                <li>Avaliação de artérias e veias cerebrais (aneurismas, malformações vasculares)</li>
+                <li>Estenose de artérias cervicais e carótidas</li>
+                <li>Avaliação de aorta e grandes vasos sem radiação ionizante</li>
+                <li>Doença arterial periférica em membros</li>
+                <li>Planejamento pré-cirúrgico vascular</li>
+                <li>Pacientes com insuficiência renal ou alergia ao contraste iodado (não pode usar Angio TC)</li>
+                <li>Gestantes com suspeita de trombose venosa (menor risco que Angio TC)</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>🆚 Angio RM vs. Angio TC — quando usar cada</h4>
+              <ul>
+                <li><strong>Angio RM:</strong> sem radiação, excelente para tecidos moles vasculares, segura para rins comprometidos</li>
+                <li><strong>Angio TC:</strong> mais rápida (urgência), melhor resolução de calcificações vasculares, disponível 24h</li>
+                <li>Angio RM é preferida em: pediatria, gestação, jovens, follow-up prolongado, IR</li>
+                <li>Angio TC é preferida em: urgência/emergência, calcificações, planejamento endovascular</li>
+                <li>Escolha é clínica do médico — nunca substitua uma pela outra sem orientação</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>📋 Agendamento e preparo BKO</h4>
+              <ul>
+                <li>No sistema: <strong>ANGIORRESSONÂNCIA TÓRAX</strong> = igual a "angio rm tórax"</li>
+                <li>No sistema: <strong>ANGIO TC ARTERIAL TÓRAX</strong> = igual a "angio tc arterial tórax"</li>
+                <li>Seguir mesmas regras da RM convencional: perguntas de segurança, campo fechado</li>
+                <li>Verificar se o PM especifica: Angio RM ou Angio TC — são exames com equipamentos diferentes</li>
+                <li>Com Gadolíneo: orientar sobre alergia (mesma conduta da RM — receita 48h antes, SP)</li>
+                <li>Máximo 4 exames de RM no mesmo dia (Angio RM conta dentro desse limite)</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>⚠️ Contraindicações e grupos de atenção</h4>
+              <ul>
+                <li>Mesmas contraindicações da RM: marca-passo, clips metálicos, implantes não compatíveis</li>
+                <li>Alergia ao Gadolíneo: protocolo antialérgico — retirar receita 48h antes na unidade (SP)</li>
+                <li>Insuficiência renal grave: Gadolíneo pode causar fibrose nefrogênica sistêmica (raro, mas grave) — avaliar com médico</li>
+                <li>Claustrofobia: sedação disponível (seguir protocolo de anestesia para RM)</li>
+                <li>Próteses e implantes metálicos: verificar compatibilidade antes do agendamento</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="alert" style="margin-top:24px;">
+            <h4>⚠️ Alerta BKO — Confirme sempre o TIPO de Angio no pedido médico</h4>
+            <p>Ao receber um pedido de "angiografia" ou "angiotomografia", confirme sempre com o paciente como está escrito exatamente no pedido médico. <strong>Angio TC</strong> (contraste iodado + tomógrafo) e <strong>Angio RM</strong> (gadolíneo + ressonância) são exames com equipamentos, contrastes e preparos completamente diferentes. Nunca substitua um pelo outro sem orientação médica. Em caso de dúvida, oriente o paciente a ligar para o médico e confirmar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 </section>
 <!-- TIPOS DE CINTILOGRAFIA -->
 <section class="section" id="tipos" style="background:var(--gray-900);">
@@ -1704,7 +1948,270 @@ footer{background:var(--gray-900);border-top:1px solid rgba(255,255,255,0.06);pa
     </div>
   </div>
 </section>
+<!-- TÉCNICA DE VENDA DE VACINAS -->
+<section class="section" id="vacinas-vendas" style="background:var(--gray-900);">
+  <div class="container">
+    <div class="section-label reveal">BKO Ativo</div>
+    <h2 class="section-title reveal">Técnica de Venda de <span class="serif">Vacinas</span></h2>
+    <p class="section-desc reveal">Vacinas são um produto de alto valor e alto potencial de oferta proativa. Todo paciente que liga para a DASA pode ser um candidato. O segredo está no timing, na personalização e em transformar a oferta em orientação de saúde — não em venda forçada.</p>
 
+    <div class="grid-2" style="margin-top:52px;gap:48px;">
+
+      <!-- PASSO A PASSO -->
+      <div class="reveal">
+        <div class="section-label">Como conduzir a oferta — passo a passo</div>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-top:20px;">
+          <div class="human-step">
+            <div class="human-step-num">1</div>
+            <div class="human-step-text">
+              <h4>Resolva o motivo principal PRIMEIRO</h4>
+              <p>Agende o exame, tire a dúvida, resolva o problema. Nunca ofereça vacina antes de resolver o assunto principal — parece desatento e irrita o cliente. A oferta vem no final, quando o cliente está satisfeito.</p>
+            </div>
+          </div>
+          <div class="human-step">
+            <div class="human-step-num">2</div>
+            <div class="human-step-text">
+              <h4>Verifique o estoque no MDA ANTES de oferecer</h4>
+              <p>MDA → Painel de Estoque → Vacinas → filtre por Marca, Unidade e Vacina. Nunca ofereça vacina sem confirmar que há doses disponíveis na unidade mais próxima do cliente. Promessa sem estoque = frustração.</p>
+            </div>
+          </div>
+          <div class="human-step">
+            <div class="human-step-num">3</div>
+            <div class="human-step-text">
+              <h4>Identifique o perfil do cliente e personalize</h4>
+              <p>Pela conversa você já sabe a idade, condição de saúde e contexto do cliente. Use isso: idoso → Herpes Zóster + Pneumocócica. Jovem adulto → HPV, Meningocócica. Mãe/pai → dTpa para proteger bebê. Viajante → Febre Amarela, Hepatite A/B.</p>
+            </div>
+          </div>
+          <div class="human-step">
+            <div class="human-step-num">4</div>
+            <div class="human-step-text">
+              <h4>Faça a transição natural antes de encerrar</h4>
+              <p>Quando o assunto principal estiver 100% resolvido, use uma frase de transição suave. O cliente ainda está no telefone e satisfeito — esse é o momento de ouro para a oferta consultiva.</p>
+            </div>
+          </div>
+          <div class="human-step">
+            <div class="human-step-num">5</div>
+            <div class="human-step-text">
+              <h4>Feche com agendamento imediato</h4>
+              <p>Se o cliente topou, agende na mesma ligação. Não dê margem para "penso e ligo depois" — a decisão resfria. Confirme unidade, data e horário antes de encerrar a chamada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCRIPTS -->
+      <div class="reveal d2">
+        <div class="section-label">Scripts de abordagem</div>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-top:20px;">
+
+          <div class="intro-box" style="padding:22px;">
+            <div class="intro-box-bar"></div>
+            <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:10px;">Frase de transição universal</div>
+            <p style="font-size:0.87rem;color:var(--gray-200);line-height:1.75;font-style:italic;">"[Nome], antes de finalizar... aproveito para te informar que aqui na DASA você também pode se vacinar com muita praticidade — por horário marcado, sem fila. Temos vacinas que não estão no posto de saúde. Posso te contar?"</p>
+          </div>
+
+          <div class="intro-box" style="padding:22px;">
+            <div class="intro-box-bar"></div>
+            <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:10px;">Se o cliente responder "pode falar"</div>
+            <p style="font-size:0.87rem;color:var(--gray-200);line-height:1.75;font-style:italic;">"Ótimo! Muitas pessoas não sabem que o calendário vacinal adulto continua após os 18 anos. Vacinas como Herpes Zóster para maiores de 50, HPV para adultos, Pneumocócica e Meningocócica ACWY só estão disponíveis na rede privada. Aqui você agenda por horário, sem espera, e pode usar convênio para algumas delas. Você sabe se está em dia com o seu calendário?"</p>
+          </div>
+
+          <div class="intro-box" style="padding:22px;">
+            <div class="intro-box-bar"></div>
+            <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:10px;">Script para perfil idoso (+60 anos)</div>
+            <p style="font-size:0.87rem;color:var(--gray-200);line-height:1.75;font-style:italic;">"Uma vacina que faço questão de mencionar para você é a do Herpes Zóster — aquela doença que causa bolhas e dores intensas nos nervos por semanas. A partir dos 50 anos o risco aumenta muito, e ela só está disponível na rede privada. Também temos a Pneumocócica, que previne pneumonia grave. São dois imunizantes que fazem uma diferença enorme na qualidade de vida nessa fase. Gostaria que eu verificasse a disponibilidade aqui perto de você?"</p>
+          </div>
+
+          <div class="intro-box" style="padding:22px;">
+            <div class="intro-box-bar"></div>
+            <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:10px;">Script para pais / mães de bebês</div>
+            <p style="font-size:0.87rem;color:var(--gray-200);line-height:1.75;font-style:italic;">"Você mencionou que tem um bebê em casa — uma dica importante: os adultos que convivem com recém-nascidos devem tomar a vacina dTpa, que protege contra coqueluche. A coqueluche pode ser grave em bebês. É uma dose simples que você e todos os cuidadores deveriam atualizar. Posso verificar a disponibilidade para você?"</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- OBJEÇÕES -->
+    <div style="margin-top:52px;">
+      <div class="section-label reveal">Objeções mais comuns — e como responder</div>
+      <div class="accordion reveal" style="margin-top:28px;">
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <span>💬 "Não tenho tempo agora"</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">"Entendo perfeitamente! Justamente por isso aqui funcionamos por horário marcado — você chega, toma a vacina em poucos minutos e vai embora sem espera. Consigo agendar você para o mesmo dia e horário do seu exame, por exemplo, para não precisar vir duas vezes. Faria sentido aproveitar a mesma ida?"</div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <span>💬 "Já me vacino no posto de saúde"</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">"Ótimo que você cuida da saúde! O SUS tem um calendário excelente. Mas existem vacinas que simplesmente não estão no posto — como Herpes Zóster (maiores de 50), Pneumocócica 13v, Meningocócica ACWY para adultos e o HPV para homens e mulheres acima de 14 anos. São justamente as que mais fazem diferença nas fases mais avançadas da vida. Posso te apresentar as opções que complementam o que você já tem?"</div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <span>💬 "Deve ser caro"</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">"Compreendo a preocupação! Primeiro: posso verificar se o seu convênio cobre a vacina que você precisa — muitos planos cobrem pelo menos influenza e pneumocócica. Para as vacinas que são particular, os valores variam, mas são muito menores do que o custo de uma internação hospitalar por uma doença que poderia ter sido prevenida. Vale a pena pelo menos saber o valor? Verifico para você agora."</div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <span>💬 "Já estou vacinado"</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">"Que ótimo! Você tem a caderneta em mãos? Pergunto porque algumas vacinas precisam de reforço que muita gente esquece — a tríplice bacteriana adulto (dTpa) a cada 10 anos, a influenza todo ano, e o reforço de COVID. Se quiser, na unidade a equipe faz uma revisão rápida do seu calendário. É um serviço que incluímos no atendimento de vacinação. Posso agendar para você?"</div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <span>💬 "Vou pensar e te ligo de volta"</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">"Claro, sem problema! Só um detalhe: o estoque de algumas vacinas é limitado e pode variar por unidade. Para garantir a dose, o ideal é agendar logo que decidir. Posso verificar agora a disponibilidade na unidade mais perto de você — só para você já ter essa informação, sem nenhum compromisso de agendar hoje. Faz sentido?"</div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <span>💬 "Precisa de receita médica?"</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">"Boa pergunta! Para a grande maioria das vacinas, não precisa de receita médica — você pode tomar por conta própria, como iniciativa de saúde preventiva. A nossa equipe de enfermagem orienta sobre qual vacina se encaixa no seu perfil no momento da aplicação. É muito mais simples do que a maioria das pessoas imagina!"</div>
+          </div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-trigger" onclick="toggleAcc(this)">
+            <span>💬 "Tenho medo de efeitos colaterais"</span>
+            <span class="acc-arrow">▼</span>
+          </button>
+          <div class="acc-body">
+            <div class="acc-content">"Entendo! É uma preocupação muito natural. As vacinas do calendário adulto têm perfil de segurança amplamente estudado. Efeitos como dorzinha local ou um cansaço leve nos primeiros dias são os mais comuns e passam rapidamente. A nossa equipe fica com você por um período de observação após a aplicação, e qualquer dúvida pode ser esclarecida com o enfermeiro na unidade. A proteção que a vacina oferece é muito maior do que o desconforto passageiro."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VACINAS POR PERFIL -->
+    <div style="margin-top:52px;">
+      <div class="section-label reveal">Oferta certa para cada perfil — guia rápido</div>
+      <div class="grid-3" style="margin-top:28px;">
+        <div class="card reveal d1">
+          <div class="card-icon">👴</div>
+          <div class="card-title">Idosos (+60 anos)</div>
+          <div class="card-desc">Herpes Zóster (exclusiva particular), Pneumocócica 13v/15v/23v, Influenza quadrivalente anual, dTpa (reforço), Hepatite B (se não vacinado). Argumento central: qualidade de vida e prevenção de complicações graves.</div>
+          <div class="card-tag">Herpes Zóster · Pneumocócica</div>
+        </div>
+        <div class="card reveal d2">
+          <div class="card-icon">🧑</div>
+          <div class="card-title">Adultos jovens (18–49 anos)</div>
+          <div class="card-desc">HPV (Gardasil 9 — homens e mulheres até 45 anos), Meningocócica ACWY, dTpa (reforço 10/10 anos), Hepatite A + B (Twinrix), Varicela (se não imune). Argumento: doenças que afetam carreira e vida social.</div>
+          <div class="card-tag">HPV · Meningocócica · dTpa</div>
+        </div>
+        <div class="card reveal d3">
+          <div class="card-icon">🤰</div>
+          <div class="card-title">Gestantes e pós-parto</div>
+          <div class="card-desc">dTpa no 3º trimestre (protege bebê contra coqueluche), Influenza (qualquer trimestre), Hepatite B. Adultos cuidadores do bebê: dTpa para toda a família. Argumento: "Proteger a mãe é proteger o bebê."</div>
+          <div class="card-tag">dTpa · Influenza · Família</div>
+        </div>
+        <div class="card reveal d4">
+          <div class="card-icon">✈️</div>
+          <div class="card-title">Viajantes</div>
+          <div class="card-desc">Febre Amarela (verificar MDA — doses limitadas!), Hepatite A + B, Febre Tifoide, Meningocócica ACWY, Raiva (destinos específicos). Verificar sempre destino e tempo antes da viagem — algumas vacinas precisam de 2 a 4 semanas para imunizar.</div>
+          <div class="card-tag">Febre Amarela · Hepatite A+B</div>
+        </div>
+        <div class="card reveal d1">
+          <div class="card-icon">🌡️</div>
+          <div class="card-title">Toda a família — anual</div>
+          <div class="card-desc">Influenza quadrivalente: recomendada para todos a cada ano. A versão quadrivalente da rede privada cobre mais cepas que a trivalente do SUS. Combo ideal: agendar a família toda no mesmo horário — traz o exame + toma a vacina.</div>
+          <div class="card-tag">Influenza anual · Toda faixa etária</div>
+        </div>
+        <div class="card reveal d2">
+          <div class="card-icon">🦠</div>
+          <div class="card-title">Crianças e adolescentes</div>
+          <div class="card-desc">Verificar calendário vacinal completo (pode haver vacinas não tomadas ou em atraso). HPV a partir de 9 anos, Dengue Qdenga (4–60 anos), Meningocócica B (exclusiva particular), Varicela reforço. Combo vacinal infantil: múltiplas vacinas em uma ida.</div>
+          <div class="card-tag">Dengue · HPV · Meningocócica B</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VACINAS DESTAQUE -->
+    <div style="margin-top:52px;">
+      <div class="section-label reveal">Vacinas premium — saiba vender</div>
+      <div class="grid-4" style="margin-top:28px;">
+        <div class="card reveal d1" style="border-top:3px solid var(--red);">
+          <div class="card-icon">🔥</div>
+          <div class="card-title">Herpes Zóster (Shingrix)</div>
+          <div class="card-desc">2 doses. A partir de 50 anos. Previne a culebrilla — dor neuropática intensa que pode durar meses. Alta demanda, margem alta, exclusiva particular.</div>
+          <div class="card-tag">Exclusiva particular · Alta procura</div>
+        </div>
+        <div class="card reveal d2" style="border-top:3px solid var(--red);">
+          <div class="card-icon">🧬</div>
+          <div class="card-title">HPV Gardasil 9</div>
+          <div class="card-desc">2 a 3 doses. Homens e mulheres até 45 anos. 9 tipos de HPV cobertos. Previne cânceres de colo do útero, ânus, garganta e verrugas genitais.</div>
+          <div class="card-tag">Alta demanda · Adultos</div>
+        </div>
+        <div class="card reveal d3" style="border-top:3px solid var(--red);">
+          <div class="card-icon">🦟</div>
+          <div class="card-title">Dengue (Qdenga)</div>
+          <div class="card-desc">2 doses com intervalo de 3 meses. 4 a 60 anos. Alta demanda em períodos epidêmicos. Verificar estoque MDA com atenção — doses esgotam rapidamente.</div>
+          <div class="card-tag">Verificar estoque · 4–60 anos</div>
+        </div>
+        <div class="card reveal d4" style="border-top:3px solid var(--red);">
+          <div class="card-icon">🧠</div>
+          <div class="card-title">Meningocócica B (Bexsero)</div>
+          <div class="card-desc">Exclusiva rede privada. Previne meningite bacteriana pelo sorogrupo B. Indicada para crianças, adolescentes e adultos jovens. Argumento: "Uma doença que mata em 24 horas."</div>
+          <div class="card-tag">Exclusiva particular · Crianças e jovens</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="highlight-box reveal" style="margin-top:44px;max-width:860px;">
+      <p>🎯 <strong>Checklist rápido antes de oferecer vacina:</strong> ① Assunto principal resolvido? ② Estoque verificado no MDA? ③ Perfil do cliente identificado? ④ Vacina correta para o perfil? ⑤ Convênio verificado? — Se todos os cinco estiverem OK: faça a oferta. Se não, não ofereça ainda.</p>
+    </div>
+
+    <div class="dodont" style="margin-top:44px;">
+      <div class="do-col reveal d1">
+        <h3>✓ Boas práticas na oferta de vacinas</h3>
+        <ul>
+          <li>Verificar estoque no MDA antes de qualquer oferta</li>
+          <li>Personalizar a oferta ao perfil e idade do paciente</li>
+          <li>Oferecer SEMPRE após resolver o assunto principal</li>
+          <li>Usar linguagem de benefício: "previne", "protege", "evita"</li>
+          <li>Verificar cobertura do convênio antes de falar de preço</li>
+          <li>Fechar o agendamento na mesma ligação quando o cliente aceitar</li>
+          <li>Informar que não precisa de receita para a maioria das vacinas</li>
+          <li>Mencionar agendamento por horário como diferencial vs. posto</li>
+          <li>Sempre oferecer a coleta domiciliar para vacinas quando disponível</li>
+        </ul>
+      </div>
+      <div class="dont-col reveal d2">
+        <h3>✗ Erros que devem ser evitados</h3>
+        <ul>
+          <li>Oferecer sem verificar estoque no MDA</li>
+          <li>Interromper o assunto principal para fazer a oferta</li>
+          <li>Falar em preço antes de falar em benefício e convênio</li>
+          <li>Prometer datas sem confirmar agenda e estoque</li>
+          <li>Insistir após recusa categórica do cliente</li>
+          <li>Oferecer vacina sem considerar o perfil e faixa etária</li>
+          <li>Dizer que "qualquer vacina serve" sem considerar contraindicações</li>
+          <li>Deixar o cliente "pensar e ligar depois" sem tentar fechar na hora</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
 <!-- DASA -->
 <section class="section" id="dasa" style="background:var(--gray-900);">
   <div class="container">
