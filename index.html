@@ -463,6 +463,9 @@ footer{background:var(--gray-900);border-top:1px solid rgba(255,255,255,0.06);pa
       <button class="tab active" onclick="showTab('exam','cintilo',this)">Cintilografia</button>
       <button class="tab" onclick="showTab('exam','petct',this)">PET/CT</button>
       <button class="tab" onclick="showTab('exam','spect',this)">SPECT / SPECT-CT</button>
+      <button class="tab" onclick="showTab('exam','angiotc',this)">Angiotomografia</button>
+      <button class="tab" onclick="showTab('exam','artro',this)">Artrocintilografia</button>
+
     </div>
     <div class="tab-panel active" id="exam-cintilo">
       <div class="exam-card reveal">
@@ -531,6 +534,311 @@ footer{background:var(--gray-900);border-top:1px solid rgba(255,255,255,0.06);pa
       </div>
     </div>
   </div>
+    <div class="tab-panel" id="exam-angiotc">
+      <div class="exam-card reveal">
+        <div class="exam-head">
+          <div class="exam-title">Angiotomografia (Angio-TC)</div>
+          <div class="exam-sub">Angiotomografia Computadorizada, avaliação dos vasos sanguíneos com contraste iodado intravenoso em tomógrafo de alta velocidade. Gera imagens 3D detalhadas de artérias e veias em questão de segundos, combinando precisão anatômica e velocidade diagnóstica sem igual.</div>
+          <div class="exam-badge">Contraste Iodado IV · Alta Resolução</div>
+        </div>
+        <div class="exam-body">
+
+          <!-- ESTATÍSTICAS RÁPIDAS -->
+          <div class="stat-row">
+            <div class="stat-box">
+              <div class="stat-num">~10s</div>
+              <div class="stat-label">Aquisição das imagens</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">≤1,3</div>
+              <div class="stat-label">Creatinina mg/dL (limite)</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">4h</div>
+              <div class="stat-label">Jejum mínimo</div>
+            </div>
+          </div>
+
+          <!-- GRADE DE INFORMAÇÕES -->
+          <div class="info-grid">
+
+            <div class="info-block">
+              <h4>🎯 Tipos e indicações principais</h4>
+              <ul>
+                <li><strong>Angiotomografia Coronária (Coro-TC):</strong> avaliação não invasiva das artérias coronárias; descarta ou confirma obstruções sem cateterismo</li>
+                <li><strong>Angiotomografia Pulmonar:</strong> padrão-ouro para embolia pulmonar (TEP) aguda em adultos não gestantes</li>
+                <li><strong>Angiotomografia de Aorta:</strong> aneurismas, dissecção aórtica, coarctação; guia tratamento endovascular (TAVI, EVAR)</li>
+                <li><strong>Angiotomografia de Carótidas:</strong> estenose carotídea pré-AVC, avaliação pré-operatória</li>
+                <li><strong>Angiotomografia de Membros:</strong> doença arterial periférica, planejamento de bypass e amputações</li>
+                <li><strong>Angiotomografia Renal:</strong> estenose de artéria renal, planejamento de transplante</li>
+              </ul>
+            </div>
+
+            <div class="info-block">
+              <h4>⚡ Como funciona</h4>
+              <ul>
+                <li>Contraste iodado é injetado por acesso venoso periférico calibroso (≥ 20G)</li>
+                <li>Tomógrafo multidetector capta imagens em alta velocidade durante passagem do contraste</li>
+                <li>Software reconstrói imagens 3D dos vasos (VR, MIP, MPR)</li>
+                <li>Médico avalia grau de estenose, trombos, aneurismas e anomalias vasculares</li>
+                <li>Exame completo em 15–30 minutos (incluindo preparo e injeção)</li>
+                <li>Sem intervenção: diagnóstico por imagem puro, não terapêutico</li>
+              </ul>
+            </div>
+
+            <div class="info-block">
+              <h4>📋 Preparo completo do paciente</h4>
+              <ul>
+                <li>Jejum de 4 a 6 horas antes do exame</li>
+                <li>Creatinina recente (últimos 3 meses) - obrigatória para liberar contraste</li>
+                <li>Informar alergias: especialmente alergias a contraste iodado anterior</li>
+                <li>Diabéticos com metformina: suspender 48h antes e 48h após o exame</li>
+                <li>Hidratação abundante no dia anterior e no dia do exame</li>
+                <li>Para angiotomografia coronária: suspender cafeína 12h antes; betabloqueador pode ser administrado para reduzir a FC</li>
+                <li>Trazer pedido médico, exames laboratoriais (creatinina, ureia) e relatório médico</li>
+                <li>Remover adornos e objetos metálicos antes do exame</li>
+              </ul>
+            </div>
+
+            <div class="info-block">
+              <h4>⚠️ Contraindicações e grupos de atenção</h4>
+              <ul>
+                <li><strong>Alergia grave ao contraste iodado:</strong> risco de anafilaxia, protocolo de premedicação obrigatório ou exame alternativo</li>
+                <li><strong>Insuficiência renal grave (Cr > 1,5–2,0 mg/dL):</strong> risco de nefropatia por contraste, relação risco/benefício avaliada pelo médico</li>
+                <li><strong>Gestação:</strong> contraindicação relativa; médico avalia urgência; cintilografia pulmonar V/Q tem menor dose fetal</li>
+                <li><strong>Mieloma múltiplo e paraproteinemias:</strong> risco aumentado de toxicidade renal</li>
+                <li><strong>Hipertireoidismo não controlado:</strong> contraste iodado pode precipitar crise tireotóxica, sempre informar</li>
+                <li><strong>Metformina:</strong> suspender conforme protocolo (risco de acidose lática)</li>
+              </ul>
+            </div>
+
+          </div><!-- fim info-grid -->
+
+          <!-- COMPARATIVO COM CINTILOGRAFIA PULMONAR (relevante no contexto do site) -->
+          <div class="compare-wrap" style="margin-top:28px;">
+            <div class="compare-head">
+              <h3 style="font-size:0.95rem;font-weight:700;">⚖️ Angiotomografia Pulmonar vs. Cintilografia V/Q. Quando usar cada uma</h3>
+            </div>
+            <div class="compare-row header">
+              <div class="c-cell">Critério</div>
+              <div class="c-cell">Angio-TC Pulmonar</div>
+              <div class="c-cell">Cintilografia V/Q</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Velocidade diagnóstica</div>
+              <div class="c-cell" style="color:var(--red);font-weight:700;">Segundos (urgência)</div>
+              <div class="c-cell" style="color:var(--gray-300);">2–4 horas</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Dose de radiação fetal</div>
+              <div class="c-cell" style="color:var(--gray-300);">Alta (0,24–0,66 mGy)</div>
+              <div class="c-cell" style="color:var(--red);font-weight:700;">Baixa preferida na gestação</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Função renal comprometida</div>
+              <div class="c-cell" style="color:var(--gray-300);">Contraindicada (contraste)</div>
+              <div class="c-cell" style="color:var(--red);font-weight:700;">Segura (sem contraste iodado)</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Diagnóstico concomitante</div>
+              <div class="c-cell" style="color:var(--red);font-weight:700;">Avalia outros achados torácicos</div>
+              <div class="c-cell" style="color:var(--gray-300);">Somente função pulmonar</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Disponibilidade</div>
+              <div class="c-cell" style="color:var(--red);font-weight:700;">Ampla, 24h em urgências</div>
+              <div class="c-cell" style="color:var(--gray-300);">Somente em serviços de MN</div>
+            </div>
+          </div>
+
+          <!-- ALERTA BKO -->
+          <div class="alert" style="margin-top:24px;">
+            <h4>⚠️ Alerta - Creatinina e Contraste</h4>
+            <p>A angiotomografia exige creatinina sérica recente (últimos 3 meses) antes de liberar o contraste iodado. Pacientes com creatinina elevada (> 1,3–1,5 mg/dL) devem ser encaminhados ao médico responsável antes de confirmar o agendamento, o contraste pode agravar a função renal. Diabéticos em uso de <strong>metformina</strong> devem suspender o medicamento 48h antes e 48h após: nunca omita essa orientação. Também pergunte sempre sobre alergias a frutos-do-mar ou contrastes anteriores.</p>
+          </div>
+
+          <!-- PÓS-EXAME -->
+          <div class="info-grid" style="margin-top:24px;">
+            <div class="info-block">
+              <h4>✅ Orientações pós-exame</h4>
+              <ul>
+                <li>Hidratação abundante nas 24h seguintes (elimina contraste)</li>
+                <li>Retomar metformina somente após 48h e com creatinina normal</li>
+                <li>Vigilância de reações tardias ao contraste: urticária, náusea, dispneia, procurar atendimento imediato</li>
+                <li>Laudo disponível em 24–48h (pode variar conforme urgência)</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>🏥 Reação ao contraste, o que saber</h4>
+              <ul>
+                <li>Reações leves (calor, sabor metálico, náusea): esperadas e transitórias</li>
+                <li>Reações moderadas (urticária, broncoespasmo): tratadas na unidade com anti-histamínico e corticoide</li>
+                <li>Reações graves (anafilaxia): emergênciaequipe treinada e adrenalina disponíveis em todas as unidades</li>
+                <li>Incidência global de reações graves: &lt; 0,04%, exame muito seguro nas indicações corretas</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="tab-panel" id="exam-artro">
+      <div class="exam-card reveal">
+        <div class="exam-head">
+          <div class="exam-title">Artrocintilografia</div>
+          <div class="exam-sub">Cintilografia Articular trifásica,avaliação funcional e metabólica das articulações e estruturas periarticulares com Tecnécio-99m. A artrocintilografia avalia simultaneamente o fluxo sanguíneo, a atividade inflamatória e o metabolismo ósseo articular, sendo indispensável na avaliação de próteses, artrites e infecções osteoarticulares.</div>
+          <div class="exam-badge">☢ Tc-99m MDP · Trifásica</div>
+        </div>
+        <div class="exam-body">
+
+          <!-- ESTATÍSTICAS RÁPIDAS -->
+          <div class="stat-row">
+            <div class="stat-box">
+              <div class="stat-num">3</div>
+              <div class="stat-label">Fases do exame</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">3–4h</div>
+              <div class="stat-label">Duração total</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-num">Tc-99m</div>
+              <div class="stat-label">Radiofármaco (6h meia-vida)</div>
+            </div>
+          </div>
+
+          <!-- GRADE DE INFORMAÇÕES -->
+          <div class="info-grid">
+
+            <div class="info-block">
+              <h4>🎯 Indicações clínicas principais</h4>
+              <ul>
+                <li><strong>Avaliação de próteses ortopédicas:</strong> diferencia infecção (séptica) de afrouxamento mecânico (asséptico), distinção crítica para conduta cirúrgica</li>
+                <li><strong>Suspeita de osteomielite:</strong> alta sensibilidade precoce, detecta infecção óssea antes do raio-X</li>
+                <li><strong>Artrite reumatoide e artropatias:</strong> mapeamento de articulações acometidas e intensidade da atividade inflamatória</li>
+                <li><strong>Doença de Paget periarticular:</strong> extensão e atividade da doença óssea metabolicamente ativa</li>
+                <li><strong>Fraturas ocultas e de estresse:</strong> diagnóstico precoce quando raio-X é negativo</li>
+                <li><strong>Artrite séptica:</strong> localização e extensão do processo infeccioso articular</li>
+                <li><strong>Necrose avascular (osteonecrose):</strong> fases precoces antes de alteração estrutural visível na RM</li>
+                <li><strong>Algodistrofia / SRDC (Síndrome Regional Dolorosa Complexa):</strong> avalia hiperemia e remodelação óssea regional</li>
+              </ul>
+            </div>
+
+            <div class="info-block">
+              <h4>⚡ As 3 fases do exame</h4>
+              <ul>
+                <li><strong>Fase 1, Angiográfica (0–5 min):</strong> imagens imediatas após injeção IV do radiofármaco; avalia fluxo sanguíneo regional e hiperemia articular, aumentado em infecção e inflamação ativa</li>
+                <li><strong>Fase 2, Fase de Sangue / Tecidos Moles (5–10 min):</strong> avalia perfusão vascular e atividade de tecidos moles periarticulares; distingue sinovite de alteração óssea pura</li>
+                <li><strong>Fase 3, Fase Tardia / Óssea (2–3 horas):</strong> reflete metabolismo ósseo ativo (atividade osteoblástica); é a fase mais importante para avaliação de ossos, próteses e infecção óssea</li>
+                <li><strong>Fase 4, SPECT-CT (quando indicado):</strong> imagem tomográfica 3D da região de interesse, com correlação anatômica precisa; reduz falsos-positivos significativamente</li>
+              </ul>
+            </div>
+
+            <div class="info-block">
+              <h4>📋 Preparo do paciente</h4>
+              <ul>
+                <li>Não requer jejum (exame sem contraste iodado)</li>
+                <li>Hidratação adequada no dia do exame, pelo menos 1–2 litros de água</li>
+                <li>Urinar frequentemente após a injeção para eliminar radiofármaco não fixado</li>
+                <li>Remover adornos metálicos, próteses externas removíveis e órteses da região a ser examinada</li>
+                <li>Informar: uso de bifosfonatos (alendronato, pamidronato), reduzem captação do MDP</li>
+                <li>Informar: corticoides em uso, podem mascarar processo inflamatório</li>
+                <li>Informar: antibióticos em curso, podem reduzir captação em infecções</li>
+                <li>Trazer raio-X, TC ou RM da região de interesse para correlação com o médico nuclear</li>
+                <li>Informar o local exato da prótese ou dor, direciona o protocolo de aquisição</li>
+              </ul>
+            </div>
+
+            <div class="info-block">
+              <h4>🦴 Próteses. O uso mais crítico</h4>
+              <ul>
+                <li>Principal indicação atual: diferenciação afrouxamento mecânico vs. infecção de prótese de quadril e joelho</li>
+                <li><strong>Afrouxamento mecânico:</strong> captação aumentada nas fases 3 (tardia) mas normal nas fases 1 e 2, padrão de remodelação sem hiperemia</li>
+                <li><strong>Infecção de prótese:</strong> captação aumentada nas 3 fases, fluxo, tecidos moles e osso todos hipercaptantes</li>
+                <li>Combinação com cintilografia de leucócitos marcados (WBC scan) aumenta especificidade para &gt; 90%</li>
+                <li>Orientação crucial: próteses recentes (menos de 1 ano) podem apresentar captação aumentada mesmo sem patologia, informar sempre a data da cirurgia</li>
+                <li>Guia decisão entre limpeza cirúrgica, troca em 1 ou 2 tempos ou tratamento conservador</li>
+              </ul>
+            </div>
+
+          </div><!-- fim info-grid -->
+
+          <!-- COMPARATIVO COM RM -->
+          <div class="compare-wrap" style="margin-top:28px;">
+            <div class="compare-head">
+              <h3 style="font-size:0.95rem;font-weight:700;">⚖️ Artrocintilografia vs. Ressonância Magnética. Quando cada uma é melhor</h3>
+            </div>
+            <div class="compare-row header">
+              <div class="c-cell">Critério</div>
+              <div class="c-cell">Artrocintilografia (MN)</div>
+              <div class="c-cell">Ressonância Magnética</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Próteses metálicas</div>
+              <div class="c-cell" style="color:var(--red);font-weight:700;">Excelente, sem artefatos</div>
+              <div class="c-cell" style="color:var(--gray-300);">Artefatos metálicos graves</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Visão do corpo todo</div>
+              <div class="c-cell" style="color:var(--red);font-weight:700;">Corpo inteiro, 1 exame</div>
+              <div class="c-cell" style="color:var(--gray-300);">Regional, uma área por vez</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Atividade metabólica</div>
+              <div class="c-cell" style="color:var(--red);font-weight:700;">Avalia função em tempo real</div>
+              <div class="c-cell" style="color:var(--gray-300);">Imagem estrutural / anatômica</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Detalhamento anatômico</div>
+              <div class="c-cell" style="color:var(--gray-300);">Baixo (funcional)</div>
+              <div class="c-cell" style="color:var(--red);font-weight:700;">Superior, tecidos moles</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Infecção óssea precoce</div>
+              <div class="c-cell" style="color:var(--red);font-weight:700;">Detecta antes da RM</div>
+              <div class="c-cell" style="color:var(--gray-300);">Pode ser negativa nas primeiras horas</div>
+            </div>
+            <div class="compare-row">
+              <div class="c-cell" style="font-weight:600;">Claustrofobia</div>
+              <div class="c-cell" style="color:var(--red);font-weight:700;">Sem problema, equipamento aberto</div>
+              <div class="c-cell" style="color:var(--gray-300);">Problemático em claustrofóbicos</div>
+            </div>
+          </div>
+
+          <!-- ALERTA BKO -->
+          <div class="alert" style="margin-top:24px;">
+            <h4>⚠️ Alerta. Próteses e Data da Cirurgia</h4>
+            <p>Ao agendar artrocintilografia de prótese, <strong>sempre pergunte e registre a data da cirurgia de implante</strong>. Próteses com menos de 1 ano de implante apresentam captação aumentada fisiologicamente (remodelação óssea normal), o que pode ser confundido com infecção ou afrouxamento. O médico nuclear precisa dessa informação antes da aquisição para ajustar a interpretação. Também anote o tipo de prótese (joelho, quadril, ombro, cotovelo) e o lado.</p>
+          </div>
+
+          <!-- INFORMAÇÕES EXTRAS -->
+          <div class="info-grid" style="margin-top:24px;">
+            <div class="info-block">
+              <h4>✅ Vantagens da artrocintilografia</h4>
+              <ul>
+                <li>Sem artefatos metálicos, ideal para próteses e fixadores</li>
+                <li>Avalia todo o esqueleto em um único exame</li>
+                <li>Detecta infecção óssea antes de alterações visíveis no raio-X (até 10–14 dias antes)</li>
+                <li>Avalia atividade metabólica real, distingue doença ativa de cicatriz inativa</li>
+                <li>Indolor e sem sedação</li>
+                <li>Equipamento aberto, sem claustrofobia</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>🔬 Combinações diagnósticas avançadas</h4>
+              <ul>
+                <li><strong>Artrocintilografia + WBC scan (leucócitos marcados):</strong> maior especificidade para infecção de prótese, padrão ouro para distinguir infecção de afrouxamento</li>
+                <li><strong>Artrocintilografia + SPECT-CT:</strong> localização anatômica precisa de focos de captação; diferencia acometimento articular de periarticular</li>
+                <li><strong>Artrocintilografia + PET/CT FDG:</strong> útil em suspeita de infecção de prótese com WBC scan não conclusivo</li>
+                <li><strong>Seguimento de artrite reumatoide:</strong> avalia resposta ao tratamento com DMARDs biologicamente, captação diminui com resposta</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
 </section>
 <!-- TIPOS DE CINTILOGRAFIA -->
 <section class="section" id="tipos" style="background:var(--gray-900);">
@@ -1281,7 +1589,7 @@ footer{background:var(--gray-900);border-top:1px solid rgba(255,255,255,0.06);pa
   <div class="container">
     <div class="section-label reveal">Função Estratégica</div>
     <h2 class="section-title reveal">O papel do <span class="serif">BKO na DASA</span></h2>
-    <p class="section-desc reveal">O BKO receptivo é o principal ponto de contato entre o paciente e o serviço de medicina nuclear. Sua atuação impacta diretamente a qualidade dos exames, a experiência do paciente e a eficiência operacional.</p>
+    <p class="section-desc reveal">O BKO ativo é o principal ponto de contato entre o paciente e o serviço de medicina nuclear. Sua atuação impacta diretamente a qualidade dos exames, a experiência do paciente e a eficiência operacional.</p>
 
     <div class="grid-3" style="margin-top:52px;">
       <div class="card reveal d1">
@@ -1692,7 +2000,7 @@ const questions = [
     exp: "A dieta pobre em iodo por 2-4 semanas antes é essencial. A carência de iodo no organismo aumenta a 'fome' da tireoide pelo iodo, maximizando a captação do iodo radioativo administrado - melhor qualidade do exame e do tratamento."
   },
   {
-    q: "Qual é a função do BKO (Back Office) receptivo na medicina nuclear?",
+    q: "Qual é a função do BKO (BackOffice) na medicina nuclear?",
     opts: ["Realizar os exames de imagem diretamente", "Interpretar laudos e diagnosticar doenças", "Gerenciar agendamentos, orientar preparo, controlar fluxo e ser interface entre paciente e equipe técnica", "Aplicar radiofarmacos nos pacientes"],
     correct: 2,
     exp: "O BKO é o ponto estratégico de contato: recebe solicitações, verifica convênios, agenda exames considerando meia-vida dos radiofarmacos, orienta preparo, confirma presença e coordena o fluxo do serviço."
